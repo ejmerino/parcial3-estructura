@@ -1,0 +1,8 @@
+﻿  App.cpp
+C:\Users\JOSUE\Desktop\Cuadro Magico\App.cpp(18,32): warning C4101: 'matrix_r': variable local sin referencia
+C:\Users\JOSUE\Desktop\Cuadro Magico\App.cpp(18,22): warning C4101: 'matrix_2': variable local sin referencia
+C:\Users\JOSUE\Desktop\Cuadro Magico\App.cpp(16,15): warning C4101: 'pot': variable local sin referencia
+  Matrix.cpp
+  Operation.cpp
+  Generando código...
+  Cuadro Magico.vcxproj -> C:\Users\JOSUE\Desktop\Cuadro Magico\x64\Debug\Cuadro Magico.exe
