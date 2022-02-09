@@ -1,0 +1,8 @@
+﻿  App.cpp
+C:\Users\JOSUE\Desktop\Cuadro Latino\App.cpp(23,60): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=double
+          ]
+C:\Users\JOSUE\Desktop\Cuadro Latino\App.cpp(21,20): warning C4101: 'valiation': variable local sin referencia
+  Cuadro Latino.vcxproj -> C:\Users\JOSUE\Desktop\Cuadro Latino\x64\Debug\Cuadro Latino.exe
