@@ -1,0 +1,117 @@
+\hypertarget{menu_8h_source}{}\doxysection{menu.\+h}
+\mbox{\hyperlink{menu_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*Universidad de Las Fuerzas Armadas -\/ ESPE}}
+\DoxyCodeLine{2 \textcolor{comment}{* Autores: Josu{\ucr} Alem{\ucr}n, Josu{\ucr} Merino}}
+\DoxyCodeLine{3 \textcolor{comment}{* PROYECTO 3er PARCIAL -\/ TCANCIONERO 2022}}
+\DoxyCodeLine{4 \textcolor{comment}{* Fecha de Creaci{\ucr}n: 16 de febrero del 2022}}
+\DoxyCodeLine{5 \textcolor{comment}{* Fecha de Modificaci{\ucr}n: 22 de febrero del 2022}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <Windows.h>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{menu__option_8h}{menu\_option.h}}"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <conio.h>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{constexpr} \textcolor{keyword}{auto} \mbox{\hyperlink{menu_8h_a218425468491dce6fa91a807d4b06afa}{KEY\_UP}} = 72;}
+\DoxyCodeLine{17 \textcolor{keyword}{constexpr} \textcolor{keyword}{auto} \mbox{\hyperlink{menu_8h_a62f8a95dab37fb2b46a6e3fe21ca688c}{KEY\_DOWN}} = 80;}
+\DoxyCodeLine{18 \textcolor{keyword}{constexpr} \textcolor{keyword}{auto} \mbox{\hyperlink{menu_8h_ac120094f62b02a93c0275c75060a5d79}{KEY\_ENTER}} = 13;}
+\DoxyCodeLine{19 \textcolor{keyword}{constexpr} \textcolor{keyword}{auto} \mbox{\hyperlink{menu_8h_a7a0c7aa6236e724eeb762350a362025e}{KEY\_ESCAPE}} = 27;}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{class_menu}{Menu}}}
+\DoxyCodeLine{22 \{}
+\DoxyCodeLine{23 \textcolor{keyword}{public}:}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \mbox{\hyperlink{class_menu_af54c660c10cdd3a620f5d9a89b4347e4}{Menu}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{26     \mbox{\hyperlink{class_menu_af54c660c10cdd3a620f5d9a89b4347e4}{Menu}}(std::vector<MenuOption>);}
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_a4f59c79beccf31299ed0467556a46131}{navigation}}();}
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_a2b4224660e5daf3e818579e39baf7e14}{display}}(\textcolor{keywordtype}{size\_t});}
+\DoxyCodeLine{29 \textcolor{keyword}{private}:}
+\DoxyCodeLine{30     std::vector<MenuOption> menu\_option\_;}
+\DoxyCodeLine{31     HANDLE console\_;}
+\DoxyCodeLine{32 \};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \mbox{\hyperlink{class_menu_af54c660c10cdd3a620f5d9a89b4347e4}{Menu::Menu}}(std::vector<MenuOption> options) : menu\_option\_(options)}
+\DoxyCodeLine{35 \{}
+\DoxyCodeLine{36     console\_ = GetStdHandle(STD\_OUTPUT\_HANDLE);}
+\DoxyCodeLine{37 \}}
+\DoxyCodeLine{38 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_a4f59c79beccf31299ed0467556a46131}{Menu::navigation}}()}
+\DoxyCodeLine{39 \{}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{keywordflow}{if} (menu\_option\_.empty())}
+\DoxyCodeLine{42     \{}
+\DoxyCodeLine{43         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{44     \}}
+\DoxyCodeLine{45     \textcolor{keywordtype}{size\_t} i\{ 1 \};}
+\DoxyCodeLine{46     \mbox{\hyperlink{class_menu_a2b4224660e5daf3e818579e39baf7e14}{display}}(1);}
+\DoxyCodeLine{47     \textcolor{keywordflow}{while} (1)}
+\DoxyCodeLine{48     \{}
+\DoxyCodeLine{49         \textcolor{keywordtype}{int} option = \_getch();}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51         \textcolor{keywordflow}{switch} (option)}
+\DoxyCodeLine{52         \{}
+\DoxyCodeLine{53         \textcolor{keywordflow}{case} \mbox{\hyperlink{menu_8h_a218425468491dce6fa91a807d4b06afa}{KEY\_UP}}:}
+\DoxyCodeLine{54         \{}
+\DoxyCodeLine{55             \textcolor{keywordflow}{if} (i != 1)}
+\DoxyCodeLine{56             \{}
+\DoxyCodeLine{57                 i-\/-\/;}
+\DoxyCodeLine{58                 \mbox{\hyperlink{class_menu_a2b4224660e5daf3e818579e39baf7e14}{display}}(i);}
+\DoxyCodeLine{59             \}}
+\DoxyCodeLine{60             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{61         \}}
+\DoxyCodeLine{62         \textcolor{keywordflow}{case} \mbox{\hyperlink{menu_8h_a62f8a95dab37fb2b46a6e3fe21ca688c}{KEY\_DOWN}}:}
+\DoxyCodeLine{63         \{}
+\DoxyCodeLine{64             \textcolor{keywordflow}{if} (i != menu\_option\_.size())}
+\DoxyCodeLine{65             \{}
+\DoxyCodeLine{66                 i++;}
+\DoxyCodeLine{67                 \mbox{\hyperlink{class_menu_a2b4224660e5daf3e818579e39baf7e14}{display}}(i);}
+\DoxyCodeLine{68             \}}
+\DoxyCodeLine{69             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{70         \}}
+\DoxyCodeLine{71         \textcolor{keywordflow}{case} \mbox{\hyperlink{menu_8h_ac120094f62b02a93c0275c75060a5d79}{KEY\_ENTER}}:}
+\DoxyCodeLine{72         \{}
+\DoxyCodeLine{73             system(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{74             menu\_option\_.at(i -\/ 1).get\_fuction()();}
+\DoxyCodeLine{75             \mbox{\hyperlink{class_menu_a4f59c79beccf31299ed0467556a46131}{navigation}}();}
+\DoxyCodeLine{76             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{77         \}}
+\DoxyCodeLine{78         \textcolor{keywordflow}{case} \mbox{\hyperlink{menu_8h_a7a0c7aa6236e724eeb762350a362025e}{KEY\_ESCAPE}}:}
+\DoxyCodeLine{79         \{}
+\DoxyCodeLine{80             std::exit(0);}
+\DoxyCodeLine{81             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{82         \}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{85             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{86         \}}
+\DoxyCodeLine{87     \}}
+\DoxyCodeLine{88 \}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_a2b4224660e5daf3e818579e39baf7e14}{Menu::display}}(\textcolor{keywordtype}{size\_t} option)}
+\DoxyCodeLine{91 \{}
+\DoxyCodeLine{92     system(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{93     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{94     SetConsoleCursorPosition(console\_, \{ 35, 8 \});}
+\DoxyCodeLine{95     std::cout << \textcolor{stringliteral}{"{}Cancionero 2022 -\/ ALEMAN MERINO"{}} << std::endl;}
+\DoxyCodeLine{96     \textcolor{keywordflow}{while} (i < menu\_option\_.size())}
+\DoxyCodeLine{97     \{}
+\DoxyCodeLine{98         \textcolor{keywordflow}{if} (option == i + 1)}
+\DoxyCodeLine{99         \{}
+\DoxyCodeLine{100             SetConsoleCursorPosition(console\_, \{ 50, short(i + 10) \});}
+\DoxyCodeLine{101             SetConsoleTextAttribute(console\_, BACKGROUND\_BLUE);}
+\DoxyCodeLine{102             std::cout << \textcolor{stringliteral}{"{}["{}} << menu\_option\_[i].get\_number\_option\_() << \textcolor{stringliteral}{"{}] "{}} << menu\_option\_[i].get\_title\_() << std::endl;}
+\DoxyCodeLine{103             SetConsoleTextAttribute(console\_, 15);}
+\DoxyCodeLine{104         \}}
+\DoxyCodeLine{105         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{106         \{}
+\DoxyCodeLine{107             SetConsoleCursorPosition(console\_, \{ 50, short(i + 10) \});}
+\DoxyCodeLine{108             std::cout << \textcolor{stringliteral}{"{}["{}} << menu\_option\_[i].get\_number\_option\_() << \textcolor{stringliteral}{"{}] "{}} << menu\_option\_[i].get\_title\_() << std::endl;}
+\DoxyCodeLine{109         \}}
+\DoxyCodeLine{110         i++;}
+\DoxyCodeLine{111     \}}
+\DoxyCodeLine{112 \}}
+
+\end{DoxyCode}

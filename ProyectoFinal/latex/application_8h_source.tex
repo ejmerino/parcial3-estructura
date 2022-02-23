@@ -1,0 +1,402 @@
+\hypertarget{application_8h_source}{}\doxysection{application.\+h}
+\mbox{\hyperlink{application_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*Universidad de Las Fuerzas Armadas -\/ ESPE}}
+\DoxyCodeLine{2 \textcolor{comment}{* Autores: Josu{\ucr} Alem{\ucr}n, Josu{\ucr} Merino}}
+\DoxyCodeLine{3 \textcolor{comment}{* PROYECTO 3er PARCIAL -\/ TCANCIONERO 2022}}
+\DoxyCodeLine{4 \textcolor{comment}{* Fecha de Creaci{\ucr}n: 16 de febrero del 2022}}
+\DoxyCodeLine{5 \textcolor{comment}{* Fecha de Modificaci{\ucr}n: 22 de febrero del 2022}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_utils_8h}{utils.h}}"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{avl__tree_8h}{avl\_tree.h}}"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <thread>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{menu_8h}{menu.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_marquee_8h}{Marquee.h}}"{}}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keywordtype}{void} \mbox{\hyperlink{application_8h_a919c1111fb5878c0180c92d93c217e22}{marquee\_limit}}(std::string text, \textcolor{keywordtype}{size\_t} limit) \{}
+\DoxyCodeLine{20     \textcolor{keywordtype}{bool} ciclo = \textcolor{keyword}{true};}
+\DoxyCodeLine{21     \textcolor{keywordflow}{while} (ciclo)}
+\DoxyCodeLine{22     \{}
+\DoxyCodeLine{23         std::string temp = text;}
+\DoxyCodeLine{24         text.erase(0, 1);}
+\DoxyCodeLine{25         text += temp[0];}
+\DoxyCodeLine{26         std::this\_thread::sleep\_for(std::chrono::milliseconds(300));}
+\DoxyCodeLine{27         SetConsoleTitleA(text.substr(0, limit).c\_str());}
+\DoxyCodeLine{28         \textcolor{keywordflow}{if} (GetAsyncKeyState(VK\_RETURN)) \{}
+\DoxyCodeLine{29             ciclo = \textcolor{keyword}{false};}
+\DoxyCodeLine{30             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{31         \}}
+\DoxyCodeLine{32     \}}
+\DoxyCodeLine{33 \}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{keyword}{class }\mbox{\hyperlink{class_avl_tree}{AvlTree}};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{keyword}{enum} \mbox{\hyperlink{application_8h_ae8c10cfe99c591548dc03ef807303dbb}{ApplicationState}}}
+\DoxyCodeLine{38 \{}
+\DoxyCodeLine{39     \mbox{\hyperlink{application_8h_ae8c10cfe99c591548dc03ef807303dbba439c688a4e9ed31638d5922a50680a8e}{RUN}},}
+\DoxyCodeLine{40     \mbox{\hyperlink{application_8h_ae8c10cfe99c591548dc03ef807303dbba679ee5320d66c8322e310daeb2ee99b8}{STOP}},}
+\DoxyCodeLine{41     \mbox{\hyperlink{application_8h_ae8c10cfe99c591548dc03ef807303dbba1061be6c3fb88d32829cba6f6b2be304}{RUNNING}}}
+\DoxyCodeLine{42 \};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{keyword}{enum} \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1}{Pieza\_musical}}}
+\DoxyCodeLine{45 \{}
+\DoxyCodeLine{46     \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a8ad705935902161cb3197ede0a1243ae}{CANCION}} = 1,}
+\DoxyCodeLine{47     \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a6fb80bff7ae43edd5baf53cbff372e29}{ARTISTA}} = 2}
+\DoxyCodeLine{48 \};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{keyword}{class }\mbox{\hyperlink{class_application}{Application}}}
+\DoxyCodeLine{51 \{}
+\DoxyCodeLine{52 \textcolor{keyword}{public}:}
+\DoxyCodeLine{53     \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_application_a04da15f4f225d3d4b099908b37271a44}{run}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{54     \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_application_a3c8a98d6c10a5b054800488df16cdbcb}{exit}}();}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{keyword}{private}:}
+\DoxyCodeLine{57     \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} main\_menu();}
+\DoxyCodeLine{58     \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} administrator\_menu();}
+\DoxyCodeLine{59     \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} init\_menu();}
+\DoxyCodeLine{60     \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} user\_menu();}
+\DoxyCodeLine{61     \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} init\_tree(\mbox{\hyperlink{class_avl_tree}{AvlTree}}\&, \textcolor{keywordtype}{int} state, \textcolor{keywordtype}{int} type);}
+\DoxyCodeLine{62     \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} encontrar\_cancion();}
+\DoxyCodeLine{63     \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} lista\_canciones();}
+\DoxyCodeLine{64     \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} nuevo\_admin();}
+\DoxyCodeLine{65     \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} agregar\_cancion();}
+\DoxyCodeLine{66     \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} eliminar\_cancion();}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{keywordtype}{int} \textcolor{keyword}{inline} \mbox{\hyperlink{class_application_a04da15f4f225d3d4b099908b37271a44}{Application::run}}(\textcolor{keywordtype}{int} state)}
+\DoxyCodeLine{71 \{}
+\DoxyCodeLine{72     \textcolor{comment}{//std::cout << "{}Cargando el cancionero"{} << std::endl;}}
+\DoxyCodeLine{73     \mbox{\hyperlink{class_avl_tree}{AvlTree}} tree\{\};}
+\DoxyCodeLine{74     \mbox{\hyperlink{class_avl_tree}{AvlTree}} temp\{\};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76     \textcolor{keywordflow}{if} (state == \mbox{\hyperlink{application_8h_ae8c10cfe99c591548dc03ef807303dbba439c688a4e9ed31638d5922a50680a8e}{ApplicationState::RUN}})}
+\DoxyCodeLine{77     \{}
+\DoxyCodeLine{78         init\_tree(tree, \mbox{\hyperlink{application_8h_ae8c10cfe99c591548dc03ef807303dbba439c688a4e9ed31638d5922a50680a8e}{ApplicationState::RUN}}, \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a8ad705935902161cb3197ede0a1243ae}{Pieza\_musical::CANCION}});}
+\DoxyCodeLine{79         init\_tree(temp, \mbox{\hyperlink{application_8h_ae8c10cfe99c591548dc03ef807303dbba439c688a4e9ed31638d5922a50680a8e}{ApplicationState::RUN}}, \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a6fb80bff7ae43edd5baf53cbff372e29}{Pieza\_musical::ARTISTA}});}
+\DoxyCodeLine{80         \textcolor{comment}{//std::this\_thread::sleep\_for(std::chrono::milliseconds(0010));}}
+\DoxyCodeLine{81         system(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{82         main\_menu();}
+\DoxyCodeLine{83     \}}
+\DoxyCodeLine{84     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{85 \}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Application::main\_menu()}
+\DoxyCodeLine{88 \{}
+\DoxyCodeLine{89     \textcolor{comment}{/*Marquee mark1("{}Universidad de Las Fuerzas Armadas -\/ ESPE"{}, 27);}}
+\DoxyCodeLine{90 \textcolor{comment}{    mark1.animation();*/}}
+\DoxyCodeLine{91     \textcolor{keywordflow}{while} (\textcolor{keyword}{true})}
+\DoxyCodeLine{92     \{}
+\DoxyCodeLine{93         std::vector<MenuOption> menu\_item\{}
+\DoxyCodeLine{94         \{1, \textcolor{stringliteral}{"{}ADMINISTRADOR"{}}, init\_menu\},}
+\DoxyCodeLine{95         \{2, \textcolor{stringliteral}{"{}USUARIO"{}}, user\_menu\},}
+\DoxyCodeLine{96         \{3, \textcolor{stringliteral}{"{}SALIR"{}}, \mbox{\hyperlink{class_application_a3c8a98d6c10a5b054800488df16cdbcb}{exit}}\} \};}
+\DoxyCodeLine{97         \mbox{\hyperlink{class_menu}{Menu}} menu\{ menu\_item \};}
+\DoxyCodeLine{98         menu.\mbox{\hyperlink{class_menu_a4f59c79beccf31299ed0467556a46131}{navigation}}();}
+\DoxyCodeLine{99     \}}
+\DoxyCodeLine{100 \}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Application::init\_menu() \{}
+\DoxyCodeLine{103     std::cout << \textcolor{stringliteral}{"{}Iniciemos..."{}} << std::endl;}
+\DoxyCodeLine{104     std::cout << std::endl;}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106     std::vector<MenuOption> menu\_item\{}
+\DoxyCodeLine{107         \{1, \textcolor{stringliteral}{"{}Iniciar Sesion"{}}, administrator\_menu\},}
+\DoxyCodeLine{108         \{2, \textcolor{stringliteral}{"{}Registrarse"{}}, nuevo\_admin\},}
+\DoxyCodeLine{109         \{3, \textcolor{stringliteral}{"{}Salir"{}}, \mbox{\hyperlink{class_application_a3c8a98d6c10a5b054800488df16cdbcb}{exit}}\}\};}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111     \mbox{\hyperlink{class_menu}{Menu}} menu\{ menu\_item \};}
+\DoxyCodeLine{112     menu.\mbox{\hyperlink{class_menu_a4f59c79beccf31299ed0467556a46131}{navigation}}();}
+\DoxyCodeLine{113 \}}
+\DoxyCodeLine{114 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Application::administrator\_menu()}
+\DoxyCodeLine{115 \{}
+\DoxyCodeLine{116     std::cout << \textcolor{stringliteral}{"{}Administrador"{}} << std::endl;}
+\DoxyCodeLine{117     std::string user = \mbox{\hyperlink{class_utils_1_1_validation_a3b12df5885629eefd2bd939134c86090}{Utils::Validation::read\_string}}(\textcolor{stringliteral}{"{}Ingrese el usuario: "{}}, \mbox{\hyperlink{namespace_utils_a3b56aabb513244d3a5d72380406b6030aba8108c4264ca80a3024d23bc640afcd}{Utils::InputType::USER}});}
+\DoxyCodeLine{118     std::string password = \mbox{\hyperlink{class_utils_1_1_validation_a3b12df5885629eefd2bd939134c86090}{Utils::Validation::read\_string}}(\textcolor{stringliteral}{"{}Ingrese la contrasena: "{}}, \mbox{\hyperlink{namespace_utils_a3b56aabb513244d3a5d72380406b6030acfb985f93ceacbee20177c5c8c06a47d}{Utils::InputType::PASSWORD}});}
+\DoxyCodeLine{119     std::cout << std::endl;}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_utils_1_1_login_a68bad6537a24cc31d6e6d1acd34cf173}{Utils::Login::login}}(user, password))}
+\DoxyCodeLine{122     \{}
+\DoxyCodeLine{123         std::vector<MenuOption> menu\_item\{}
+\DoxyCodeLine{124             \{1, \textcolor{stringliteral}{"{}BUSCAR UNA CANCION"{}}, encontrar\_cancion\},}
+\DoxyCodeLine{125             \{2, \textcolor{stringliteral}{"{}MOSTRAR CANCIONES"{}}, lista\_canciones\},}
+\DoxyCodeLine{126             \{3, \textcolor{stringliteral}{"{}INGRESAR UNA NUEVA CANCION"{}}, agregar\_cancion\},}
+\DoxyCodeLine{127             \{4, \textcolor{stringliteral}{"{}ELIMINAR UNA CANCION"{}}, eliminar\_cancion\},}
+\DoxyCodeLine{128             \{5, \textcolor{stringliteral}{"{}CREAR ADMINISTRADOR"{}}, nuevo\_admin\},}
+\DoxyCodeLine{129             \{6, \textcolor{stringliteral}{"{}REGRESAR"{}}, main\_menu\},}
+\DoxyCodeLine{130             \{7, \textcolor{stringliteral}{"{}CERRAR SESION"{}}, \mbox{\hyperlink{class_application_a3c8a98d6c10a5b054800488df16cdbcb}{exit}}\} \};}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132         \mbox{\hyperlink{class_menu}{Menu}} menu\{ menu\_item \};}
+\DoxyCodeLine{133         menu.\mbox{\hyperlink{class_menu_a4f59c79beccf31299ed0467556a46131}{navigation}}();}
+\DoxyCodeLine{134     \}}
+\DoxyCodeLine{135     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{136     \{}
+\DoxyCodeLine{137         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_utils_1_1_file_ad21240d530f5937e1c31a9113ee48967}{Utils::File::exists\_file}}(\textcolor{stringliteral}{"{}user.txt"{}}))}
+\DoxyCodeLine{138         \{}
+\DoxyCodeLine{139             std::cout << \textcolor{stringliteral}{"{}Todavia no existe Administrador"{}} << std::endl;}
+\DoxyCodeLine{140             std::string user = \mbox{\hyperlink{class_utils_1_1_validation_a3b12df5885629eefd2bd939134c86090}{Utils::Validation::read\_string}}(\textcolor{stringliteral}{"{}Ingrese un nombre de usuario: "{}}, \mbox{\hyperlink{namespace_utils_a3b56aabb513244d3a5d72380406b6030aba8108c4264ca80a3024d23bc640afcd}{Utils::InputType::USER}});}
+\DoxyCodeLine{141             std::string password = \mbox{\hyperlink{class_utils_1_1_validation_a3b12df5885629eefd2bd939134c86090}{Utils::Validation::read\_string}}(\textcolor{stringliteral}{"{}Ingrese la clave: "{}}, \mbox{\hyperlink{namespace_utils_a3b56aabb513244d3a5d72380406b6030acfb985f93ceacbee20177c5c8c06a47d}{Utils::InputType::PASSWORD}});}
+\DoxyCodeLine{142             \mbox{\hyperlink{class_utils_1_1_generator_a735671f0b61e1a73cdeab78cda65e1ea}{Utils::Generator::generate\_admins}}(user, password);}
+\DoxyCodeLine{143             std::cout << \textcolor{stringliteral}{"{}\(\backslash\)nAdministrador creado"{}} << std::endl;}
+\DoxyCodeLine{144             std::this\_thread::sleep\_for(std::chrono::milliseconds(3000));}
+\DoxyCodeLine{145             main\_menu();}
+\DoxyCodeLine{146         \}}
+\DoxyCodeLine{147         std::cout << \textcolor{stringliteral}{"{}\(\backslash\)nUSUARIO O CONTRASENA INCORRECTO"{}} << std::endl;}
+\DoxyCodeLine{148         std::cin.get();}
+\DoxyCodeLine{149         std::cout << \textcolor{stringliteral}{"{}\(\backslash\)033[2J\(\backslash\)033[1;1H"{}};}
+\DoxyCodeLine{150         main\_menu();}
+\DoxyCodeLine{151     \}}
+\DoxyCodeLine{152 \}}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Application::user\_menu()}
+\DoxyCodeLine{155 \{}
+\DoxyCodeLine{156     std::vector<MenuOption> menu\_item\{}
+\DoxyCodeLine{157         \{1, \textcolor{stringliteral}{"{}BUSCAR UNA CANCION"{}}, encontrar\_cancion\},}
+\DoxyCodeLine{158         \{2, \textcolor{stringliteral}{"{}MOSTRAR CANCIONES"{}}, lista\_canciones\},}
+\DoxyCodeLine{159         \{3, \textcolor{stringliteral}{"{}REGRESAR"{}}, main\_menu\},}
+\DoxyCodeLine{160     \};}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162     \mbox{\hyperlink{class_menu}{Menu}} menu\{ menu\_item \};}
+\DoxyCodeLine{163     menu.\mbox{\hyperlink{class_menu_a4f59c79beccf31299ed0467556a46131}{navigation}}();}
+\DoxyCodeLine{164 \}}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_application_a3c8a98d6c10a5b054800488df16cdbcb}{Application::exit}}()}
+\DoxyCodeLine{167 \{}
+\DoxyCodeLine{168     \mbox{\hyperlink{class_avl_tree}{AvlTree}} tree;}
+\DoxyCodeLine{169     init\_tree(tree, \mbox{\hyperlink{application_8h_ae8c10cfe99c591548dc03ef807303dbba1061be6c3fb88d32829cba6f6b2be304}{ApplicationState::RUNNING}}, \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a8ad705935902161cb3197ede0a1243ae}{Pieza\_musical::CANCION}});}
+\DoxyCodeLine{170     std::cout << \textcolor{stringliteral}{"{}Saliendo del sistema..."{}} << std::endl;}
+\DoxyCodeLine{171     \textcolor{comment}{//std::this\_thread::sleep\_for(std::chrono::milliseconds(1000));}}
+\DoxyCodeLine{172     init\_tree(tree, \mbox{\hyperlink{application_8h_ae8c10cfe99c591548dc03ef807303dbba679ee5320d66c8322e310daeb2ee99b8}{ApplicationState::STOP}}, \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a8ad705935902161cb3197ede0a1243ae}{Pieza\_musical::CANCION}});}
+\DoxyCodeLine{173     std::cout << \textcolor{stringliteral}{"{}Gracias!"{}} << std::endl;}
+\DoxyCodeLine{174     std::exit(0);}
+\DoxyCodeLine{175 \}}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Application::init\_tree(\mbox{\hyperlink{class_avl_tree}{AvlTree}}\& tree, \textcolor{keywordtype}{int} state, \textcolor{keywordtype}{int} type)}
+\DoxyCodeLine{178 \{}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180     \textcolor{keyword}{static} \mbox{\hyperlink{class_avl_tree}{AvlTree}} temp\_tree\_artista;}
+\DoxyCodeLine{181     \textcolor{keyword}{static} \mbox{\hyperlink{class_avl_tree}{AvlTree}} temp\_tree\_cancion;}
+\DoxyCodeLine{182     \textcolor{keywordflow}{if} (state == \mbox{\hyperlink{application_8h_ae8c10cfe99c591548dc03ef807303dbba439c688a4e9ed31638d5922a50680a8e}{ApplicationState::RUN}})}
+\DoxyCodeLine{183     \{}
+\DoxyCodeLine{184         \textcolor{keywordflow}{if} (type == \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a8ad705935902161cb3197ede0a1243ae}{Pieza\_musical::CANCION}})}
+\DoxyCodeLine{185         \{}
+\DoxyCodeLine{186             \mbox{\hyperlink{class_utils_1_1_file_af1118338b648de9fa597340bc85e5f2a}{Utils::File::cargar\_arbol}}(temp\_tree\_cancion, \textcolor{stringliteral}{"{}datos.txt"{}}, \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a8ad705935902161cb3197ede0a1243ae}{Pieza\_musical::CANCION}});}
+\DoxyCodeLine{187         \}}
+\DoxyCodeLine{188         \textcolor{keywordflow}{if} (type == \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a6fb80bff7ae43edd5baf53cbff372e29}{Pieza\_musical::ARTISTA}})}
+\DoxyCodeLine{189         \{}
+\DoxyCodeLine{190             \mbox{\hyperlink{class_utils_1_1_file_af1118338b648de9fa597340bc85e5f2a}{Utils::File::cargar\_arbol}}(temp\_tree\_artista, \textcolor{stringliteral}{"{}datos.txt"{}}, \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a6fb80bff7ae43edd5baf53cbff372e29}{Pieza\_musical::ARTISTA}});}
+\DoxyCodeLine{191         \}}
+\DoxyCodeLine{192     \}}
+\DoxyCodeLine{193     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (state == \mbox{\hyperlink{application_8h_ae8c10cfe99c591548dc03ef807303dbba1061be6c3fb88d32829cba6f6b2be304}{ApplicationState::RUNNING}})}
+\DoxyCodeLine{194     \{}
+\DoxyCodeLine{195         \textcolor{keywordflow}{if} (type == \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a6fb80bff7ae43edd5baf53cbff372e29}{Pieza\_musical::ARTISTA}})}
+\DoxyCodeLine{196         \{}
+\DoxyCodeLine{197             tree = temp\_tree\_artista;}
+\DoxyCodeLine{198         \}}
+\DoxyCodeLine{199         \textcolor{keywordflow}{if} (type == \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a8ad705935902161cb3197ede0a1243ae}{Pieza\_musical::CANCION}})}
+\DoxyCodeLine{200         \{}
+\DoxyCodeLine{201             tree = temp\_tree\_cancion;}
+\DoxyCodeLine{202         \}}
+\DoxyCodeLine{203     \}}
+\DoxyCodeLine{204     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (state == \mbox{\hyperlink{application_8h_ae8c10cfe99c591548dc03ef807303dbba679ee5320d66c8322e310daeb2ee99b8}{ApplicationState::STOP}})}
+\DoxyCodeLine{205     \{}
+\DoxyCodeLine{206         \mbox{\hyperlink{class_utils_1_1_file_ac08e9bb9b08598097cbe6dfbbb1bea82}{Utils::File::guardar\_arbol}}(tree, \textcolor{stringliteral}{"{}datos.txt"{}});}
+\DoxyCodeLine{207     \}}
+\DoxyCodeLine{208 \}}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Application::encontrar\_cancion()}
+\DoxyCodeLine{211 \{}
+\DoxyCodeLine{212     \textcolor{keyword}{enum} Pieza}
+\DoxyCodeLine{213     \{}
+\DoxyCodeLine{214         \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a8ad705935902161cb3197ede0a1243ae}{CANCION}} = 1,}
+\DoxyCodeLine{215         \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a6fb80bff7ae43edd5baf53cbff372e29}{ARTISTA}} = 2}
+\DoxyCodeLine{216     \};}
+\DoxyCodeLine{217     \textcolor{keywordtype}{int} option = 0;}
+\DoxyCodeLine{218     \textcolor{keywordflow}{while} (\textcolor{keyword}{true})}
+\DoxyCodeLine{219     \{}
+\DoxyCodeLine{220         std::cout << \textcolor{stringliteral}{"{}En que formato desea visualizar la busqueda?\(\backslash\)n"{}}}
+\DoxyCodeLine{221             << std::endl;}
+\DoxyCodeLine{222         std::cout << \textcolor{stringliteral}{"{}[1] CANCION-\/ARTISTA"{}} << std::endl;}
+\DoxyCodeLine{223         std::cout << \textcolor{stringliteral}{"{}[2] ARTISTA-\/CANCION"{}} << std::endl;}
+\DoxyCodeLine{224         option = (\mbox{\hyperlink{class_utils_1_1_validation_a02ea4c937fdaf3ef4a501dcd5c83eec2}{Utils::Validation::read\_int}}(\textcolor{stringliteral}{"{}\(\backslash\)nIngrese la opcion: "{}}, 1, 1));}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{226         \textcolor{keywordflow}{if} (option == \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a8ad705935902161cb3197ede0a1243ae}{CANCION}} || option == \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a6fb80bff7ae43edd5baf53cbff372e29}{ARTISTA}})}
+\DoxyCodeLine{227         \{}
+\DoxyCodeLine{228             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{229         \}}
+\DoxyCodeLine{230         std::cout << \textcolor{stringliteral}{"{}\(\backslash\)033[2J\(\backslash\)033[1;1H"{}};}
+\DoxyCodeLine{231     \}}
+\DoxyCodeLine{232     std::cin.ignore();}
+\DoxyCodeLine{233     std::string word = \mbox{\hyperlink{class_utils_1_1_validation_a3b12df5885629eefd2bd939134c86090}{Utils::Validation::read\_string}}(}
+\DoxyCodeLine{234         \textcolor{stringliteral}{"{}Ingrese la cancion o artista a buscar: "{}}, \mbox{\hyperlink{namespace_utils_a3b56aabb513244d3a5d72380406b6030ac921208079ed91dd5dbb64920d5e3db3}{Utils::InputType::WORD}});}
+\DoxyCodeLine{235     \mbox{\hyperlink{class_avl_tree}{AvlTree}} tree;}
+\DoxyCodeLine{236     Application::init\_tree(tree, \mbox{\hyperlink{application_8h_ae8c10cfe99c591548dc03ef807303dbba1061be6c3fb88d32829cba6f6b2be304}{ApplicationState::RUNNING}}, \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a8ad705935902161cb3197ede0a1243ae}{Pieza\_musical::CANCION}});}
+\DoxyCodeLine{237     \textcolor{keywordflow}{if} (tree.\mbox{\hyperlink{class_avl_tree_a15b1a6e9db3421faab3dd535ef985e9b}{has}}(word))}
+\DoxyCodeLine{238     \{}
+\DoxyCodeLine{239         std::vector<AvlNode*> node = tree.\mbox{\hyperlink{class_avl_tree_a3016147db264ae2ca98405e745944ecc}{find}}(word);}
+\DoxyCodeLine{240 }
+\DoxyCodeLine{241         \textcolor{keywordflow}{if} (option == \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a8ad705935902161cb3197ede0a1243ae}{CANCION}})}
+\DoxyCodeLine{242         \{}
+\DoxyCodeLine{243             std::cout << \textcolor{stringliteral}{"{}\(\backslash\)nTotal de canciones encontradas: "{}} << node.size() << std::endl;}
+\DoxyCodeLine{244             \textcolor{keywordtype}{int} i = 1;}
+\DoxyCodeLine{245             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& n : node)}
+\DoxyCodeLine{246             \{}
+\DoxyCodeLine{247                 std::cout << \textcolor{stringliteral}{"{}["{}} << i << \textcolor{stringliteral}{"{}] "{}} << n-\/>cancion() << \textcolor{stringliteral}{"{}: "{}}}
+\DoxyCodeLine{248                     << n-\/>artista() << std::endl;}
+\DoxyCodeLine{249                 i++;}
+\DoxyCodeLine{250             \}}
+\DoxyCodeLine{251         \}}
+\DoxyCodeLine{252         \textcolor{keywordflow}{if} (option == \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a6fb80bff7ae43edd5baf53cbff372e29}{ARTISTA}})}
+\DoxyCodeLine{253         \{}
+\DoxyCodeLine{254             std::cout << \textcolor{stringliteral}{"{}\(\backslash\)nTotal de canciones encontradas: "{}} << node.size() << std::endl;}
+\DoxyCodeLine{255             \textcolor{keywordtype}{int} i = 1;}
+\DoxyCodeLine{256             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& n : node)}
+\DoxyCodeLine{257             \{}
+\DoxyCodeLine{258                 std::cout << \textcolor{stringliteral}{"{}["{}} << i << \textcolor{stringliteral}{"{}] "{}} << n-\/>artista() << \textcolor{stringliteral}{"{}: "{}}}
+\DoxyCodeLine{259                     << n-\/>cancion() << std::endl;}
+\DoxyCodeLine{260                 i++;}
+\DoxyCodeLine{261             \}}
+\DoxyCodeLine{262         \}}
+\DoxyCodeLine{263         node.clear();}
+\DoxyCodeLine{264     \}}
+\DoxyCodeLine{265     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{266     \{}
+\DoxyCodeLine{267         std::cout << \textcolor{stringliteral}{"{}\(\backslash\)nNO EXISTE LA CANCION"{}} << std::endl;}
+\DoxyCodeLine{268     \}}
+\DoxyCodeLine{269     std::cin.get();}
+\DoxyCodeLine{270     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)033[2J\(\backslash\)033[1;1H"{}};}
+\DoxyCodeLine{271 \}}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{273 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Application::lista\_canciones()}
+\DoxyCodeLine{274 \{}
+\DoxyCodeLine{275     \textcolor{keyword}{enum} TypeTraversal}
+\DoxyCodeLine{276     \{}
+\DoxyCodeLine{277         PREORDER = 1,}
+\DoxyCodeLine{278         INORDER = 2,}
+\DoxyCodeLine{279         POSTORDER = 3}
+\DoxyCodeLine{280     \};}
+\DoxyCodeLine{281     \textcolor{keyword}{enum} LanguageType}
+\DoxyCodeLine{282     \{}
+\DoxyCodeLine{283         \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a8ad705935902161cb3197ede0a1243ae}{CANCION}} = 1,}
+\DoxyCodeLine{284         \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a6fb80bff7ae43edd5baf53cbff372e29}{ARTISTA}} = 2}
+\DoxyCodeLine{285     \};}
+\DoxyCodeLine{286 }
+\DoxyCodeLine{287     \textcolor{keywordtype}{int} option = 0;}
+\DoxyCodeLine{288     \textcolor{keywordtype}{int} op = 0;}
+\DoxyCodeLine{289     \textcolor{keywordflow}{while} (\textcolor{keyword}{true})}
+\DoxyCodeLine{290     \{}
+\DoxyCodeLine{291         std::cout << \textcolor{stringliteral}{"{}LISTA DE CANCIONES"{}} << std::endl;}
+\DoxyCodeLine{292         std::cout << \textcolor{stringliteral}{"{}Como desea mostrar las canciones?\(\backslash\)n"{}} << std::endl;}
+\DoxyCodeLine{293         std::cout << \textcolor{stringliteral}{"{}1.-\/ Cancion/Artista"{}} << std::endl;}
+\DoxyCodeLine{294         std::cout << \textcolor{stringliteral}{"{}2.-\/ Artista/Cancion"{}} << std::endl;}
+\DoxyCodeLine{295         op = (\mbox{\hyperlink{class_utils_1_1_validation_a02ea4c937fdaf3ef4a501dcd5c83eec2}{Utils::Validation::read\_int}}(\textcolor{stringliteral}{"{}\(\backslash\)nIngrese la opcion: "{}}, 1, 1));}
+\DoxyCodeLine{296         \textcolor{keywordflow}{if} (op == \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a8ad705935902161cb3197ede0a1243ae}{CANCION}} || op == \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a6fb80bff7ae43edd5baf53cbff372e29}{ARTISTA}})}
+\DoxyCodeLine{297         \{}
+\DoxyCodeLine{298             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{299         \}}
+\DoxyCodeLine{300         system(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{301     \}}
+\DoxyCodeLine{302     \mbox{\hyperlink{class_avl_tree}{AvlTree}} tree\_artista;}
+\DoxyCodeLine{303     \mbox{\hyperlink{class_avl_tree}{AvlTree}} tree\_cancion;}
+\DoxyCodeLine{304     Application::init\_tree(tree\_artista, \mbox{\hyperlink{application_8h_ae8c10cfe99c591548dc03ef807303dbba1061be6c3fb88d32829cba6f6b2be304}{ApplicationState::RUNNING}}, \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a6fb80bff7ae43edd5baf53cbff372e29}{Pieza\_musical::ARTISTA}});}
+\DoxyCodeLine{305     Application::init\_tree(tree\_cancion, \mbox{\hyperlink{application_8h_ae8c10cfe99c591548dc03ef807303dbba1061be6c3fb88d32829cba6f6b2be304}{ApplicationState::RUNNING}}, \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a8ad705935902161cb3197ede0a1243ae}{Pieza\_musical::CANCION}});}
+\DoxyCodeLine{306     \textcolor{keywordflow}{if} (op == \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a8ad705935902161cb3197ede0a1243ae}{CANCION}})}
+\DoxyCodeLine{307     \{}
+\DoxyCodeLine{308         tree\_cancion.\mbox{\hyperlink{class_avl_tree_a3b9bd862820a93de97180667be138047}{for\_each\_inorder}}([](\mbox{\hyperlink{class_avl_node}{AvlNode}}* node)}
+\DoxyCodeLine{309             \{ std::cout << node-\/>\mbox{\hyperlink{class_avl_node_a5ecdbe8843bc2ca8c9d1ccba4f8df2ff}{cancion}}() << \textcolor{stringliteral}{"{}: "{}} << node-\/>\mbox{\hyperlink{class_avl_node_af329424e398b9fa9b85e39d01f8f175f}{artista}}() << std::endl; \});}
+\DoxyCodeLine{310         std::cout << \textcolor{stringliteral}{"{}\(\backslash\)nTOTAL DE CANCIONES: "{}} << tree\_cancion.\mbox{\hyperlink{class_avl_tree_a906c0aa9e655ce93e00da6162e971382}{get\_size}}() << std::endl;}
+\DoxyCodeLine{311     \}}
+\DoxyCodeLine{312     \textcolor{keywordflow}{if} (op == \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a6fb80bff7ae43edd5baf53cbff372e29}{ARTISTA}})}
+\DoxyCodeLine{313     \{}
+\DoxyCodeLine{314         tree\_artista.\mbox{\hyperlink{class_avl_tree_a3b9bd862820a93de97180667be138047}{for\_each\_inorder}}([](\mbox{\hyperlink{class_avl_node}{AvlNode}}* node)}
+\DoxyCodeLine{315             \{ std::cout << node-\/>\mbox{\hyperlink{class_avl_node_a5ecdbe8843bc2ca8c9d1ccba4f8df2ff}{cancion}}() << \textcolor{stringliteral}{"{}: "{}} << node-\/>\mbox{\hyperlink{class_avl_node_af329424e398b9fa9b85e39d01f8f175f}{artista}}() << std::endl; \});}
+\DoxyCodeLine{316         std::cout << \textcolor{stringliteral}{"{}\(\backslash\)nTOTAL DE CANCIONES: "{}} << tree\_artista.\mbox{\hyperlink{class_avl_tree_a906c0aa9e655ce93e00da6162e971382}{get\_size}}() << std::endl;}
+\DoxyCodeLine{317     \}}
+\DoxyCodeLine{318     system(\textcolor{stringliteral}{"{}pause"{}});}
+\DoxyCodeLine{319 \}}
+\DoxyCodeLine{320 }
+\DoxyCodeLine{321 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Application::nuevo\_admin()}
+\DoxyCodeLine{322 \{}
+\DoxyCodeLine{323     std::string new\_user = \mbox{\hyperlink{class_utils_1_1_validation_a3b12df5885629eefd2bd939134c86090}{Utils::Validation::read\_string}}(\textcolor{stringliteral}{"{}Crear usuario: "{}}, \mbox{\hyperlink{namespace_utils_a3b56aabb513244d3a5d72380406b6030aba8108c4264ca80a3024d23bc640afcd}{Utils::InputType::USER}});}
+\DoxyCodeLine{324     std::string new\_password = \mbox{\hyperlink{class_utils_1_1_validation_a3b12df5885629eefd2bd939134c86090}{Utils::Validation::read\_string}}(\textcolor{stringliteral}{"{}Ingrese la contrase{\ucr}a: "{}}, \mbox{\hyperlink{namespace_utils_a3b56aabb513244d3a5d72380406b6030acfb985f93ceacbee20177c5c8c06a47d}{Utils::InputType::PASSWORD}});}
+\DoxyCodeLine{325     \mbox{\hyperlink{class_utils_1_1_generator_a735671f0b61e1a73cdeab78cda65e1ea}{Utils::Generator::generate\_admins}}(new\_user, new\_password);}
+\DoxyCodeLine{326     std::cout << \textcolor{stringliteral}{"{}Administrado creado con exito"{}} << std::endl;}
+\DoxyCodeLine{327     main\_menu();}
+\DoxyCodeLine{328 \}}
+\DoxyCodeLine{329 }
+\DoxyCodeLine{330 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Application::agregar\_cancion()}
+\DoxyCodeLine{331 \{}
+\DoxyCodeLine{332     \mbox{\hyperlink{class_avl_tree}{AvlTree}} tree;}
+\DoxyCodeLine{333     Application::init\_tree(tree, \mbox{\hyperlink{application_8h_ae8c10cfe99c591548dc03ef807303dbba1061be6c3fb88d32829cba6f6b2be304}{ApplicationState::RUNNING}}, \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a8ad705935902161cb3197ede0a1243ae}{Pieza\_musical::CANCION}});}
+\DoxyCodeLine{334     \textcolor{keywordflow}{while} (\textcolor{keyword}{true})}
+\DoxyCodeLine{335     \{}
+\DoxyCodeLine{336         std::cout << \textcolor{stringliteral}{"{}Ingrese la cancion a insertar."{}} << std::endl;}
+\DoxyCodeLine{337 }
+\DoxyCodeLine{338         std::string artista = \mbox{\hyperlink{class_utils_1_1_validation_a3b12df5885629eefd2bd939134c86090}{Utils::Validation::read\_string}}(\textcolor{stringliteral}{"{}Artista: "{}}, \mbox{\hyperlink{namespace_utils_a3b56aabb513244d3a5d72380406b6030a0bc0de4f320b5147f099b26480177a54}{Utils::InputType::OTHER}});}
+\DoxyCodeLine{339         std::string cancion = \mbox{\hyperlink{class_utils_1_1_validation_a3b12df5885629eefd2bd939134c86090}{Utils::Validation::read\_string}}(\textcolor{stringliteral}{"{}Cancion: "{}}, \mbox{\hyperlink{namespace_utils_a3b56aabb513244d3a5d72380406b6030a0bc0de4f320b5147f099b26480177a54}{Utils::InputType::OTHER}});}
+\DoxyCodeLine{340 }
+\DoxyCodeLine{341         \textcolor{keywordflow}{if} (tree.\mbox{\hyperlink{class_avl_tree_a15b1a6e9db3421faab3dd535ef985e9b}{has}}(cancion))}
+\DoxyCodeLine{342         \{}
+\DoxyCodeLine{343             std::cout << \textcolor{stringliteral}{"{}La cancion ya existe ."{}} << std::endl;}
+\DoxyCodeLine{344         \}}
+\DoxyCodeLine{345         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{346         \{}
+\DoxyCodeLine{347             tree.\mbox{\hyperlink{class_avl_tree_a20cc7bd4bb8d8876c1cfc39cf5996341}{insert}}(artista, cancion);}
+\DoxyCodeLine{348         \}}
+\DoxyCodeLine{349         std::cout << \textcolor{stringliteral}{"{}Desea agregar otra cancion[s/n]: "{}};}
+\DoxyCodeLine{350         \textcolor{keywordtype}{char} option = 0;}
+\DoxyCodeLine{351         std::cin >> option;}
+\DoxyCodeLine{352         std::cin.ignore();}
+\DoxyCodeLine{353         \textcolor{keywordflow}{if} (option == \textcolor{charliteral}{'s'} || option == \textcolor{charliteral}{'S'})}
+\DoxyCodeLine{354         \{}
+\DoxyCodeLine{355             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{356         \}}
+\DoxyCodeLine{357         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{358         \{}
+\DoxyCodeLine{359             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{360         \}}
+\DoxyCodeLine{361     \}}
+\DoxyCodeLine{362 \}}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{364 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Application::eliminar\_cancion()}
+\DoxyCodeLine{365 \{}
+\DoxyCodeLine{366 }
+\DoxyCodeLine{367     \textcolor{keywordflow}{while} (\textcolor{keyword}{true})}
+\DoxyCodeLine{368     \{}
+\DoxyCodeLine{369         std::cout << \textcolor{stringliteral}{"{}ELIMINAR CANCIONES"{}} << std::endl;}
+\DoxyCodeLine{370         std::cout << \textcolor{stringliteral}{"{}Ingrese la cancion a eliminar."{}} << std::endl;}
+\DoxyCodeLine{371         std::string word = \mbox{\hyperlink{class_utils_1_1_validation_a3b12df5885629eefd2bd939134c86090}{Utils::Validation::read\_string}}(\textcolor{stringliteral}{"{}\(\backslash\)Cancion: "{}}, \mbox{\hyperlink{namespace_utils_a3b56aabb513244d3a5d72380406b6030ac921208079ed91dd5dbb64920d5e3db3}{Utils::InputType::WORD}});}
+\DoxyCodeLine{372         \mbox{\hyperlink{class_avl_tree}{AvlTree}} tree;}
+\DoxyCodeLine{373         Application::init\_tree(tree, \mbox{\hyperlink{application_8h_ae8c10cfe99c591548dc03ef807303dbba1061be6c3fb88d32829cba6f6b2be304}{ApplicationState::RUNNING}}, \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a8ad705935902161cb3197ede0a1243ae}{Pieza\_musical::CANCION}});}
+\DoxyCodeLine{374 }
+\DoxyCodeLine{375         \textcolor{keywordflow}{if} (tree.\mbox{\hyperlink{class_avl_tree_a15b1a6e9db3421faab3dd535ef985e9b}{has}}(word))}
+\DoxyCodeLine{376         \{}
+\DoxyCodeLine{377             tree.\mbox{\hyperlink{class_avl_tree_a4237414bc5197b872c16e72c4367eb93}{remove}}(word);}
+\DoxyCodeLine{378             std::cout << \textcolor{stringliteral}{"{}ELIMINACION EXITOSA"{}} << std::endl;}
+\DoxyCodeLine{379         \}}
+\DoxyCodeLine{380         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{381         \{}
+\DoxyCodeLine{382             std::cout << \textcolor{stringliteral}{"{}LA CANCION INGRESADA NO EXISTE"{}} << std::endl;}
+\DoxyCodeLine{383         \}}
+\DoxyCodeLine{384         std::cout << \textcolor{stringliteral}{"{}\(\backslash\)nDesea eliminar otra palabra[s/n]: "{}};}
+\DoxyCodeLine{385         \textcolor{keywordtype}{char} option = 0;}
+\DoxyCodeLine{386         std::cin >> option;}
+\DoxyCodeLine{387         std::cin.ignore();}
+\DoxyCodeLine{388         \textcolor{keywordflow}{if} (option == \textcolor{charliteral}{'s'} || option == \textcolor{charliteral}{'S'})}
+\DoxyCodeLine{389         \{}
+\DoxyCodeLine{390             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{391         \}}
+\DoxyCodeLine{392         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{393         \{}
+\DoxyCodeLine{394             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{395         \}}
+\DoxyCodeLine{396     \}}
+\DoxyCodeLine{397 \}}
+
+\end{DoxyCode}

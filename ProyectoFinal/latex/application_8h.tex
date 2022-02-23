@@ -1,0 +1,80 @@
+\hypertarget{application_8h}{}\doxysection{application.\+h File Reference}
+\label{application_8h}\index{application.h@{application.h}}
+{\ttfamily \#include \char`\"{}utils.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include \char`\"{}avl\+\_\+tree.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include \char`\"{}menu.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Marquee.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_application}{Application}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{application_8h_ae8c10cfe99c591548dc03ef807303dbb}{Application\+State}} \{ \mbox{\hyperlink{application_8h_ae8c10cfe99c591548dc03ef807303dbba439c688a4e9ed31638d5922a50680a8e}{RUN}}
+, \mbox{\hyperlink{application_8h_ae8c10cfe99c591548dc03ef807303dbba679ee5320d66c8322e310daeb2ee99b8}{STOP}}
+, \mbox{\hyperlink{application_8h_ae8c10cfe99c591548dc03ef807303dbba1061be6c3fb88d32829cba6f6b2be304}{RUNNING}}
+ \}
+\item 
+enum \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1}{Pieza\+\_\+musical}} \{ \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a8ad705935902161cb3197ede0a1243ae}{CANCION}} = 1
+, \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a6fb80bff7ae43edd5baf53cbff372e29}{ARTISTA}} = 2
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{application_8h_a919c1111fb5878c0180c92d93c217e22}{marquee\+\_\+limit}} (std\+::string text, size\+\_\+t limit)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{application_8h_ae8c10cfe99c591548dc03ef807303dbb}\label{application_8h_ae8c10cfe99c591548dc03ef807303dbb}} 
+\index{application.h@{application.h}!ApplicationState@{ApplicationState}}
+\index{ApplicationState@{ApplicationState}!application.h@{application.h}}
+\doxysubsubsection{\texorpdfstring{ApplicationState}{ApplicationState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{application_8h_ae8c10cfe99c591548dc03ef807303dbb}{Application\+State}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RUN@{RUN}!application.h@{application.h}}\index{application.h@{application.h}!RUN@{RUN}}}\mbox{\Hypertarget{application_8h_ae8c10cfe99c591548dc03ef807303dbba439c688a4e9ed31638d5922a50680a8e}\label{application_8h_ae8c10cfe99c591548dc03ef807303dbba439c688a4e9ed31638d5922a50680a8e}} 
+RUN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STOP@{STOP}!application.h@{application.h}}\index{application.h@{application.h}!STOP@{STOP}}}\mbox{\Hypertarget{application_8h_ae8c10cfe99c591548dc03ef807303dbba679ee5320d66c8322e310daeb2ee99b8}\label{application_8h_ae8c10cfe99c591548dc03ef807303dbba679ee5320d66c8322e310daeb2ee99b8}} 
+STOP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RUNNING@{RUNNING}!application.h@{application.h}}\index{application.h@{application.h}!RUNNING@{RUNNING}}}\mbox{\Hypertarget{application_8h_ae8c10cfe99c591548dc03ef807303dbba1061be6c3fb88d32829cba6f6b2be304}\label{application_8h_ae8c10cfe99c591548dc03ef807303dbba1061be6c3fb88d32829cba6f6b2be304}} 
+RUNNING&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{application_8h_a84f5e43089c5505216b7cfbabf052bb1}\label{application_8h_a84f5e43089c5505216b7cfbabf052bb1}} 
+\index{application.h@{application.h}!Pieza\_musical@{Pieza\_musical}}
+\index{Pieza\_musical@{Pieza\_musical}!application.h@{application.h}}
+\doxysubsubsection{\texorpdfstring{Pieza\_musical}{Pieza\_musical}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1}{Pieza\+\_\+musical}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CANCION@{CANCION}!application.h@{application.h}}\index{application.h@{application.h}!CANCION@{CANCION}}}\mbox{\Hypertarget{application_8h_a84f5e43089c5505216b7cfbabf052bb1a8ad705935902161cb3197ede0a1243ae}\label{application_8h_a84f5e43089c5505216b7cfbabf052bb1a8ad705935902161cb3197ede0a1243ae}} 
+CANCION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ARTISTA@{ARTISTA}!application.h@{application.h}}\index{application.h@{application.h}!ARTISTA@{ARTISTA}}}\mbox{\Hypertarget{application_8h_a84f5e43089c5505216b7cfbabf052bb1a6fb80bff7ae43edd5baf53cbff372e29}\label{application_8h_a84f5e43089c5505216b7cfbabf052bb1a6fb80bff7ae43edd5baf53cbff372e29}} 
+ARTISTA&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{application_8h_a919c1111fb5878c0180c92d93c217e22}\label{application_8h_a919c1111fb5878c0180c92d93c217e22}} 
+\index{application.h@{application.h}!marquee\_limit@{marquee\_limit}}
+\index{marquee\_limit@{marquee\_limit}!application.h@{application.h}}
+\doxysubsubsection{\texorpdfstring{marquee\_limit()}{marquee\_limit()}}
+{\footnotesize\ttfamily void marquee\+\_\+limit (\begin{DoxyParamCaption}\item[{std\+::string}]{text,  }\item[{size\+\_\+t}]{limit }\end{DoxyParamCaption})}
+

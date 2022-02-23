@@ -1,0 +1,424 @@
+\hypertarget{_utils_8h_source}{}\doxysection{Utils.\+h}
+\mbox{\hyperlink{_utils_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*Universidad de Las Fuerzas Armadas -\/ ESPE}}
+\DoxyCodeLine{2 \textcolor{comment}{* Autores: Josu{\ucr} Alem{\ucr}n, Josu{\ucr} Merino}}
+\DoxyCodeLine{3 \textcolor{comment}{* PROYECTO 3er PARCIAL -\/ TCANCIONERO 2022}}
+\DoxyCodeLine{4 \textcolor{comment}{* Fecha de Creaci{\ucr}n: 16 de febrero del 2022}}
+\DoxyCodeLine{5 \textcolor{comment}{* Fecha de Modificaci{\ucr}n: 22 de febrero del 2022}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <regex>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <exception>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <Windows.h>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{avl__tree_8h}{avl\_tree.h}}"{}}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_utils}{Utils}}}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22     \textcolor{keyword}{enum} \mbox{\hyperlink{namespace_utils_a3b56aabb513244d3a5d72380406b6030}{InputType}}}
+\DoxyCodeLine{23     \{}
+\DoxyCodeLine{24         \mbox{\hyperlink{namespace_utils_a3b56aabb513244d3a5d72380406b6030aba8108c4264ca80a3024d23bc640afcd}{USER}},}
+\DoxyCodeLine{25         \mbox{\hyperlink{namespace_utils_a3b56aabb513244d3a5d72380406b6030acfb985f93ceacbee20177c5c8c06a47d}{PASSWORD}},}
+\DoxyCodeLine{26         \mbox{\hyperlink{namespace_utils_a3b56aabb513244d3a5d72380406b6030ac921208079ed91dd5dbb64920d5e3db3}{WORD}},}
+\DoxyCodeLine{27         \mbox{\hyperlink{namespace_utils_a3b56aabb513244d3a5d72380406b6030a0bc0de4f320b5147f099b26480177a54}{OTHER}}}
+\DoxyCodeLine{28     \};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keyword}{class }\mbox{\hyperlink{class_utils_1_1_validation}{Validation}}}
+\DoxyCodeLine{31     \{}
+\DoxyCodeLine{32     \textcolor{keyword}{public}:}
+\DoxyCodeLine{33         \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_utils_1_1_validation_a476501f9552f92eb335667bb4ecab541}{string\_is\_valid}}(\textcolor{keyword}{const} std::string\& str);}
+\DoxyCodeLine{34         \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_utils_1_1_validation_a02ea4c937fdaf3ef4a501dcd5c83eec2}{read\_int}}(std::string, \textcolor{keywordtype}{int} min\_digits = 1, \textcolor{keywordtype}{int} max\_digits = 20);}
+\DoxyCodeLine{35         \textcolor{keyword}{static} \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_utils_1_1_validation_a3b12df5885629eefd2bd939134c86090}{read\_string}}(std::string label, \textcolor{keywordtype}{int} state, \textcolor{keywordtype}{size\_t} size = 20);}
+\DoxyCodeLine{36         \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_utils_1_1_validation_a30e20aa29558f9e33f8d1d959cf9f2b5}{is\_ASCII}}(std::string\& s);}
+\DoxyCodeLine{37         \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_utils_1_1_validation_a225dd53aa99bec01a66e56a703333e2f}{format\_password}}(std::string\& password);}
+\DoxyCodeLine{38         \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_utils_1_1_validation_af4739f3943aa6aab1431ba14f143fa4f}{string\_valid}}(std::string\& str);}
+\DoxyCodeLine{39         \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_utils_1_1_validation_ab28b94072f49c7fdf62841ba01921760}{validate\_string}}(\textcolor{keyword}{const} std::string\& str);}
+\DoxyCodeLine{40     \};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keyword}{class }\mbox{\hyperlink{class_utils_1_1_login}{Login}}}
+\DoxyCodeLine{43     \{}
+\DoxyCodeLine{44     \textcolor{keyword}{public}:}
+\DoxyCodeLine{45         \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_utils_1_1_login_a68bad6537a24cc31d6e6d1acd34cf173}{login}}(std::string\& user, std::string\& password);}
+\DoxyCodeLine{46         \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_utils_1_1_login_abf8e8774abf72e125097aba0d1485d26}{encrypt}}(std::string\& password);}
+\DoxyCodeLine{47         \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_utils_1_1_login_a70140c42f97450bd4ef9d82681719968}{decrypt}}(std::string\& password);}
+\DoxyCodeLine{48         \textcolor{keyword}{static} \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_utils_1_1_login_a82c74a4c5976307787bf817d98205c59}{masking\_password}}(std::string label);}
+\DoxyCodeLine{49     \};}
+\DoxyCodeLine{50     \textcolor{keyword}{class }\mbox{\hyperlink{class_utils_1_1_file}{File}}}
+\DoxyCodeLine{51     \{}
+\DoxyCodeLine{52     \textcolor{keyword}{public}:}
+\DoxyCodeLine{53         \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_utils_1_1_file_a05069934bb31f037f27dccd0278a3597}{write\_file}}(std::string\& user, std::string\& password);}
+\DoxyCodeLine{54         \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_utils_1_1_file_a0290e37fcb9e9ba08a4bd0b1a6361320}{read\_file}}(std::string\& user, std::string\& password);}
+\DoxyCodeLine{55         \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_utils_1_1_file_a4150fe2f79add16d82f87f2638547d7a}{update\_file}}(std::string\& user, std::string\& password);}
+\DoxyCodeLine{56         \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_utils_1_1_file_af1118338b648de9fa597340bc85e5f2a}{cargar\_arbol}}(\mbox{\hyperlink{class_avl_tree}{AvlTree}}\& tree, std::string file\_path, \textcolor{keywordtype}{int} type);}
+\DoxyCodeLine{57         \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_utils_1_1_file_ac08e9bb9b08598097cbe6dfbbb1bea82}{guardar\_arbol}}(\mbox{\hyperlink{class_avl_tree}{AvlTree}}\& tree, std::string file\_path);}
+\DoxyCodeLine{58         \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_utils_1_1_file_ad21240d530f5937e1c31a9113ee48967}{exists\_file}}(\textcolor{keyword}{const} std::string name);}
+\DoxyCodeLine{59     \};}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keyword}{class }\mbox{\hyperlink{class_utils_1_1_generator}{Generator}}}
+\DoxyCodeLine{62     \{}
+\DoxyCodeLine{63     \textcolor{keyword}{public}:}
+\DoxyCodeLine{64         \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_utils_1_1_generator_a735671f0b61e1a73cdeab78cda65e1ea}{generate\_admins}}(std::string\& user, std::string\& password);}
+\DoxyCodeLine{65         \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_utils_1_1_generator_a25c7bba1cc77c070f1a1713bf3d79ee3}{remove\_number}}(std::string\& str);}
+\DoxyCodeLine{66     \};}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{69     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_utils_1_1_validation_a476501f9552f92eb335667bb4ecab541}{Validation::string\_is\_valid}}(\textcolor{keyword}{const} std::string\& str)}
+\DoxyCodeLine{70     \{}
+\DoxyCodeLine{71         \textcolor{comment}{//regular expression to validate a string}}
+\DoxyCodeLine{72         std::regex reg(}
+\DoxyCodeLine{73             \textcolor{stringliteral}{"{}(?:[[:space:]]*"{}}}
+\DoxyCodeLine{74             \textcolor{stringliteral}{"{}([[:alpha:]\_]+)"{}}}
+\DoxyCodeLine{75             \textcolor{stringliteral}{"{}[[:space:]]*)+"{}});}
+\DoxyCodeLine{76         \textcolor{keywordflow}{return} std::regex\_match(str, reg);}
+\DoxyCodeLine{77     \}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_utils_1_1_validation_a02ea4c937fdaf3ef4a501dcd5c83eec2}{Validation::read\_int}}(std::string label, \textcolor{keywordtype}{int} min\_digits, \textcolor{keywordtype}{int} max\_digits)}
+\DoxyCodeLine{80     \{}
+\DoxyCodeLine{81         \textcolor{keywordtype}{int} input;}
+\DoxyCodeLine{82         \textcolor{keywordflow}{do}}
+\DoxyCodeLine{83         \{}
+\DoxyCodeLine{84             std::cout << label;}
+\DoxyCodeLine{85             std::cin >> input;}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87             \textcolor{keywordflow}{if} (std::cin.fail())}
+\DoxyCodeLine{88             \{}
+\DoxyCodeLine{89                 std::cin.clear();}
+\DoxyCodeLine{90                 std::cin.ignore(INT\_MAX, \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{91                 \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{92             \}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94             \textcolor{keywordtype}{int} total\_digits = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}((input == 0 ? 1 : std::log10(std::abs(input)) + 1));}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96             \textcolor{keywordflow}{if} (total\_digits < min\_digits || total\_digits > max\_digits)}
+\DoxyCodeLine{97             \{}
+\DoxyCodeLine{98                 \textcolor{keywordflow}{if} (min\_digits == max\_digits)}
+\DoxyCodeLine{99                 \{}
+\DoxyCodeLine{100                     std::cout << std::endl}
+\DoxyCodeLine{101                         << \textcolor{stringliteral}{"{}[ingrese un valor de "{}} << max\_digits << \textcolor{stringliteral}{"{} digitos"{}} << std::endl;}
+\DoxyCodeLine{102                 \}}
+\DoxyCodeLine{103                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{104                 \{}
+\DoxyCodeLine{105                     std::cout << std::endl}
+\DoxyCodeLine{106                         << \textcolor{stringliteral}{"{}[ingrese un valor entre "{}}}
+\DoxyCodeLine{107                         << min\_digits << \textcolor{stringliteral}{"{} y "{}} << max\_digits << \textcolor{stringliteral}{"{} digitos]"{}} << std::endl;}
+\DoxyCodeLine{108                 \}}
+\DoxyCodeLine{109                 \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{110             \}}
+\DoxyCodeLine{111             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{112         \} \textcolor{keywordflow}{while} (\textcolor{keyword}{true});}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114         \textcolor{keywordflow}{return} input;}
+\DoxyCodeLine{115     \}}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_utils_1_1_validation_a3b12df5885629eefd2bd939134c86090}{Validation::read\_string}}(std::string label, \textcolor{keywordtype}{int} state, \textcolor{keywordtype}{size\_t} size)}
+\DoxyCodeLine{118     \{}
+\DoxyCodeLine{119         std::string input;}
+\DoxyCodeLine{120         \textcolor{keywordflow}{if} (state == \mbox{\hyperlink{namespace_utils_a3b56aabb513244d3a5d72380406b6030aba8108c4264ca80a3024d23bc640afcd}{InputType::USER}})}
+\DoxyCodeLine{121         \{}
+\DoxyCodeLine{122             std::cout << label;}
+\DoxyCodeLine{123             std::getline(std::cin, input, \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{124             std::string temp = input;}
+\DoxyCodeLine{125             \mbox{\hyperlink{class_utils_1_1_generator_a25c7bba1cc77c070f1a1713bf3d79ee3}{Generator::remove\_number}}(temp);}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127             \textcolor{keywordflow}{while} (!std::all\_of(temp.begin(), temp.end(), ::islower) ||}
+\DoxyCodeLine{128                 !\mbox{\hyperlink{class_utils_1_1_validation_a30e20aa29558f9e33f8d1d959cf9f2b5}{Validation::is\_ASCII}}(input) ||}
+\DoxyCodeLine{129                 !(input.size() <= size))}
+\DoxyCodeLine{130             \{}
+\DoxyCodeLine{131                 std::cout << \textcolor{stringliteral}{"{}\(\backslash\)nFormato incorrecto"{}} << std::endl;}
+\DoxyCodeLine{132                 input.clear();}
+\DoxyCodeLine{133                 temp.clear();}
+\DoxyCodeLine{134                 std::cout << label;}
+\DoxyCodeLine{135                 std::getline(std::cin, input, \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{136                 temp = input;}
+\DoxyCodeLine{137                 \mbox{\hyperlink{class_utils_1_1_generator_a25c7bba1cc77c070f1a1713bf3d79ee3}{Generator::remove\_number}}(temp);}
+\DoxyCodeLine{138             \}}
+\DoxyCodeLine{139         \}}
+\DoxyCodeLine{140         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (state == \mbox{\hyperlink{namespace_utils_a3b56aabb513244d3a5d72380406b6030acfb985f93ceacbee20177c5c8c06a47d}{InputType::PASSWORD}})}
+\DoxyCodeLine{141         \{}
+\DoxyCodeLine{142             std::cout << label;}
+\DoxyCodeLine{143             input = \mbox{\hyperlink{class_utils_1_1_login_a82c74a4c5976307787bf817d98205c59}{Login::masking\_password}}(input);}
+\DoxyCodeLine{144             \textcolor{keywordflow}{while} (!\mbox{\hyperlink{class_utils_1_1_validation_a225dd53aa99bec01a66e56a703333e2f}{Validation::format\_password}}(input) || !(input.size() < size))}
+\DoxyCodeLine{145             \{}
+\DoxyCodeLine{146                 std::cout << \textcolor{stringliteral}{"{}\(\backslash\)nFormato incorrecto."{}} << std::endl;}
+\DoxyCodeLine{147                 input.clear();}
+\DoxyCodeLine{148                 std::cout << label;}
+\DoxyCodeLine{149                 input = \mbox{\hyperlink{class_utils_1_1_login_a82c74a4c5976307787bf817d98205c59}{Login::masking\_password}}(input);}
+\DoxyCodeLine{150             \}}
+\DoxyCodeLine{151         \}}
+\DoxyCodeLine{152         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (state == \mbox{\hyperlink{namespace_utils_a3b56aabb513244d3a5d72380406b6030ac921208079ed91dd5dbb64920d5e3db3}{InputType::WORD}})}
+\DoxyCodeLine{153         \{}
+\DoxyCodeLine{154             std::cout << label;}
+\DoxyCodeLine{155             std::getline(std::cin, input, \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{156             \textcolor{keywordflow}{while} (!\mbox{\hyperlink{class_utils_1_1_validation_af4739f3943aa6aab1431ba14f143fa4f}{Validation::string\_valid}}(input))}
+\DoxyCodeLine{157             \{}
+\DoxyCodeLine{158                 std::cout << \textcolor{stringliteral}{"{}\(\backslash\)nFormato incorrecto."{}} << std::endl;}
+\DoxyCodeLine{159                 input.clear();}
+\DoxyCodeLine{160                 std::cout << label;}
+\DoxyCodeLine{161                 std::getline(std::cin, input, \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{162             \}}
+\DoxyCodeLine{163         \}}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (state == \mbox{\hyperlink{namespace_utils_a3b56aabb513244d3a5d72380406b6030a0bc0de4f320b5147f099b26480177a54}{InputType::OTHER}}) \{}
+\DoxyCodeLine{166             std::cout << label;}
+\DoxyCodeLine{167             std::getline(std::cin, input, \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{168             \textcolor{keywordflow}{while} (\mbox{\hyperlink{class_utils_1_1_validation_ab28b94072f49c7fdf62841ba01921760}{Validation::validate\_string}}(input))}
+\DoxyCodeLine{169             \{}
+\DoxyCodeLine{170                 std::cout << \textcolor{stringliteral}{"{}\(\backslash\)nFormato incorrecto."{}} << std::endl;}
+\DoxyCodeLine{171                 input.clear();}
+\DoxyCodeLine{172                 std::cout << label;}
+\DoxyCodeLine{173                 std::getline(std::cin, input, \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{174             \}}
+\DoxyCodeLine{175         \}}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177         \textcolor{keywordflow}{return} input;}
+\DoxyCodeLine{178     \}}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_utils_1_1_validation_a30e20aa29558f9e33f8d1d959cf9f2b5}{Validation::is\_ASCII}}(std::string\& s)}
+\DoxyCodeLine{181     \{}
+\DoxyCodeLine{182         \textcolor{keywordflow}{return} !std::any\_of(s.begin(), s.end(), [](\textcolor{keywordtype}{char} c)}
+\DoxyCodeLine{183             \{ return static\_cast<unsigned char>(c) > 127; \});}
+\DoxyCodeLine{184     \}}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_utils_1_1_validation_a225dd53aa99bec01a66e56a703333e2f}{Validation::format\_password}}(std::string\& password)}
+\DoxyCodeLine{187     \{}
+\DoxyCodeLine{188         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{char}\& c : password)}
+\DoxyCodeLine{189         \{}
+\DoxyCodeLine{190             \textcolor{keywordflow}{if} (isdigit(c) || isalpha(c))}
+\DoxyCodeLine{191             \{}
+\DoxyCodeLine{192                 \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{193             \}}
+\DoxyCodeLine{194             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{195             \{}
+\DoxyCodeLine{196                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{197             \}}
+\DoxyCodeLine{198         \}}
+\DoxyCodeLine{199         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{200     \}}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_utils_1_1_validation_ab28b94072f49c7fdf62841ba01921760}{Validation::validate\_string}}(\textcolor{keyword}{const} std::string\& str)}
+\DoxyCodeLine{203     \{}
+\DoxyCodeLine{204         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < str.size(); i++)}
+\DoxyCodeLine{205         \{}
+\DoxyCodeLine{206             \textcolor{keywordtype}{char} c = str[i];}
+\DoxyCodeLine{207             \textcolor{keywordflow}{if} (!isalpha(c) \&\& !isspace(c))}
+\DoxyCodeLine{208             \{}
+\DoxyCodeLine{209                 std::cout << \textcolor{stringliteral}{"{}Error!, Solo debe tener letras."{}} << std::endl;}
+\DoxyCodeLine{210                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{211             \}}
+\DoxyCodeLine{212         \}}
+\DoxyCodeLine{213         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{214     \}}
+\DoxyCodeLine{215     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_utils_1_1_validation_af4739f3943aa6aab1431ba14f143fa4f}{Validation::string\_valid}}(std::string\& str)}
+\DoxyCodeLine{216     \{}
+\DoxyCodeLine{217         \textcolor{keywordflow}{return} std::all\_of(str.begin(), str.end(), ::isalpha);}
+\DoxyCodeLine{218     \}}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_utils_1_1_login_a68bad6537a24cc31d6e6d1acd34cf173}{Login::login}}(std::string\& user, std::string\& password)}
+\DoxyCodeLine{221     \{}
+\DoxyCodeLine{222         std::string temp\_user = user;}
+\DoxyCodeLine{223         std::string temp\_password;}
+\DoxyCodeLine{224         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_utils_1_1_file_a0290e37fcb9e9ba08a4bd0b1a6361320}{Utils::File::read\_file}}(temp\_user, temp\_password))}
+\DoxyCodeLine{225         \{}
+\DoxyCodeLine{226             \textcolor{keywordflow}{if} (password == temp\_password)}
+\DoxyCodeLine{227             \{}
+\DoxyCodeLine{228                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{229             \}}
+\DoxyCodeLine{230         \}}
+\DoxyCodeLine{231         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{232     \}}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{234     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_utils_1_1_login_abf8e8774abf72e125097aba0d1485d26}{Login::encrypt}}(std::string\& password)}
+\DoxyCodeLine{235     \{}
+\DoxyCodeLine{236         std::string encrypted\_password = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{237         std::string::iterator it = password.begin();}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{239         \textcolor{keywordflow}{for} (; it != password.end(); ++it)}
+\DoxyCodeLine{240         \{}
+\DoxyCodeLine{241             encrypted\_password += \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(*it + 1);}
+\DoxyCodeLine{242         \}}
+\DoxyCodeLine{243         password = encrypted\_password;}
+\DoxyCodeLine{244     \}}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{246     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_utils_1_1_login_a70140c42f97450bd4ef9d82681719968}{Login::decrypt}}(std::string\& password)}
+\DoxyCodeLine{247     \{}
+\DoxyCodeLine{248         std::string decrypted\_password = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{249         std::string::iterator it;}
+\DoxyCodeLine{250         \textcolor{keywordflow}{for} (it = password.begin(); it != password.end(); ++it)}
+\DoxyCodeLine{251         \{}
+\DoxyCodeLine{252             decrypted\_password += \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(*it -\/ 1);}
+\DoxyCodeLine{253         \}}
+\DoxyCodeLine{254         password = decrypted\_password;}
+\DoxyCodeLine{255         std::cout << decrypted\_password;}
+\DoxyCodeLine{256     \}}
+\DoxyCodeLine{257 }
+\DoxyCodeLine{258     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_utils_1_1_login_a82c74a4c5976307787bf817d98205c59}{Login::masking\_password}}(std::string label)}
+\DoxyCodeLine{259     \{}
+\DoxyCodeLine{260 }
+\DoxyCodeLine{261         std::string result;}
+\DoxyCodeLine{262         DWORD mode, count;}
+\DoxyCodeLine{263         HANDLE ih = GetStdHandle(STD\_INPUT\_HANDLE);}
+\DoxyCodeLine{264         HANDLE oh = GetStdHandle(STD\_OUTPUT\_HANDLE);}
+\DoxyCodeLine{265         \textcolor{keywordflow}{if} (!GetConsoleMode(ih, \&mode))}
+\DoxyCodeLine{266             \textcolor{keywordflow}{throw} std::runtime\_error(}
+\DoxyCodeLine{267                 \textcolor{stringliteral}{"{}getpassword: You must be connected to a console to use this program.\(\backslash\)n"{}});}
+\DoxyCodeLine{268         SetConsoleMode(ih, mode \& \string~(ENABLE\_ECHO\_INPUT | ENABLE\_LINE\_INPUT));}
+\DoxyCodeLine{269 }
+\DoxyCodeLine{270         WriteConsoleA(oh, label.c\_str(), label.length(), \&count, NULL);}
+\DoxyCodeLine{271         \textcolor{keywordtype}{char} c;}
+\DoxyCodeLine{272         \textcolor{keywordflow}{while} (ReadConsoleA(ih, \&c, 1, \&count, NULL) \&\& (c != \textcolor{charliteral}{'\(\backslash\)r'}) \&\& (c != \textcolor{charliteral}{'\(\backslash\)n'}))}
+\DoxyCodeLine{273         \{}
+\DoxyCodeLine{274             \textcolor{keywordflow}{if} (c == \textcolor{charliteral}{'\(\backslash\)b'})}
+\DoxyCodeLine{275             \{}
+\DoxyCodeLine{276                 \textcolor{keywordflow}{if} (result.length())}
+\DoxyCodeLine{277                 \{}
+\DoxyCodeLine{278                     WriteConsoleA(oh, \textcolor{stringliteral}{"{}\(\backslash\)b \(\backslash\)b"{}}, 3, \&count, NULL);}
+\DoxyCodeLine{279                     result.erase(result.end() -\/ 1);}
+\DoxyCodeLine{280                 \}}
+\DoxyCodeLine{281             \}}
+\DoxyCodeLine{282             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{283             \{}
+\DoxyCodeLine{284                 WriteConsoleA(oh, \textcolor{stringliteral}{"{}*"{}}, 1, \&count, NULL);}
+\DoxyCodeLine{285                 result.push\_back(c);}
+\DoxyCodeLine{286             \}}
+\DoxyCodeLine{287         \}}
+\DoxyCodeLine{288 }
+\DoxyCodeLine{289         SetConsoleMode(ih, mode);}
+\DoxyCodeLine{290         \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{291     \}}
+\DoxyCodeLine{292 }
+\DoxyCodeLine{293     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_utils_1_1_file_a05069934bb31f037f27dccd0278a3597}{File::write\_file}}(std::string\& user, std::string\& password)}
+\DoxyCodeLine{294     \{}
+\DoxyCodeLine{295 }
+\DoxyCodeLine{296         std::ofstream file(\textcolor{stringliteral}{"{}user.txt"{}}, std::ios::out | std::ios::binary | std::ios::app);}
+\DoxyCodeLine{297         \mbox{\hyperlink{class_utils_1_1_login_abf8e8774abf72e125097aba0d1485d26}{Utils::Login::encrypt}}(password);}
+\DoxyCodeLine{298         \textcolor{keywordflow}{if} (file.is\_open())}
+\DoxyCodeLine{299         \{}
+\DoxyCodeLine{300             file << user << \textcolor{stringliteral}{"{}:"{}} << password << std::endl;}
+\DoxyCodeLine{301             file.close();}
+\DoxyCodeLine{302         \}}
+\DoxyCodeLine{303         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{304         \{}
+\DoxyCodeLine{305             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{306         \}}
+\DoxyCodeLine{307         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{308     \}}
+\DoxyCodeLine{309     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_utils_1_1_file_a0290e37fcb9e9ba08a4bd0b1a6361320}{File::read\_file}}(std::string\& user, std::string\& password)}
+\DoxyCodeLine{310     \{}
+\DoxyCodeLine{311         std::ifstream file(\textcolor{stringliteral}{"{}user.txt"{}}, std::ios::in | std::ios::binary);}
+\DoxyCodeLine{312         \textcolor{keywordflow}{if} (file.is\_open())}
+\DoxyCodeLine{313         \{}
+\DoxyCodeLine{314             std::string line;}
+\DoxyCodeLine{315             \textcolor{keywordflow}{while} (std::getline(file, line, \textcolor{charliteral}{'\(\backslash\)n'}))}
+\DoxyCodeLine{316             \{}
+\DoxyCodeLine{317                 std::string::size\_type pos = line.find(\textcolor{charliteral}{':'});}
+\DoxyCodeLine{318                 \textcolor{keywordflow}{if} (pos != std::string::npos)}
+\DoxyCodeLine{319                 \{}
+\DoxyCodeLine{320                     std::string user\_read = line.substr(0, pos);}
+\DoxyCodeLine{321                     \textcolor{keywordflow}{if} (user\_read == user)}
+\DoxyCodeLine{322                     \{}
+\DoxyCodeLine{323                         user = user\_read;}
+\DoxyCodeLine{324                         password = line.substr(pos + 1);}
+\DoxyCodeLine{325                         \mbox{\hyperlink{class_utils_1_1_login_a70140c42f97450bd4ef9d82681719968}{Utils::Login::decrypt}}(password);}
+\DoxyCodeLine{326                         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{327                     \}}
+\DoxyCodeLine{328                     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{329                     \{}
+\DoxyCodeLine{330                         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{331                     \}}
+\DoxyCodeLine{332                 \}}
+\DoxyCodeLine{333             \}}
+\DoxyCodeLine{334             file.close();}
+\DoxyCodeLine{335         \}}
+\DoxyCodeLine{336         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{337     \}}
+\DoxyCodeLine{338 }
+\DoxyCodeLine{339     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_utils_1_1_file_a4150fe2f79add16d82f87f2638547d7a}{File::update\_file}}(std::string\& user, std::string\& password)}
+\DoxyCodeLine{340     \{}
+\DoxyCodeLine{341         std::ofstream file(\textcolor{stringliteral}{"{}user.txt"{}}, std::ios::out | std::ios::binary);}
+\DoxyCodeLine{342         \mbox{\hyperlink{class_utils_1_1_login_abf8e8774abf72e125097aba0d1485d26}{Utils::Login::encrypt}}(password);}
+\DoxyCodeLine{343         \textcolor{keywordflow}{if} (file.is\_open())}
+\DoxyCodeLine{344         \{}
+\DoxyCodeLine{345             file << user << \textcolor{stringliteral}{"{}:"{}} << password << std::endl;}
+\DoxyCodeLine{346             file.close();}
+\DoxyCodeLine{347         \}}
+\DoxyCodeLine{348         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{349         \{}
+\DoxyCodeLine{350             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{351         \}}
+\DoxyCodeLine{352         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{353     \}}
+\DoxyCodeLine{354 }
+\DoxyCodeLine{355     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_utils_1_1_file_af1118338b648de9fa597340bc85e5f2a}{File::cargar\_arbol}}(\mbox{\hyperlink{class_avl_tree}{AvlTree}}\& tree, std::string file\_path, \textcolor{keywordtype}{int} type)}
+\DoxyCodeLine{356     \{}
+\DoxyCodeLine{357         \textcolor{keyword}{enum} PIEZA}
+\DoxyCodeLine{358         \{}
+\DoxyCodeLine{359             \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a8ad705935902161cb3197ede0a1243ae}{CANCION}} = 1,}
+\DoxyCodeLine{360             \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a6fb80bff7ae43edd5baf53cbff372e29}{ARTISTA}} = 2,}
+\DoxyCodeLine{361         \};}
+\DoxyCodeLine{362         std::ifstream file(file\_path, std::ios::in);}
+\DoxyCodeLine{363         std::string line;}
+\DoxyCodeLine{364         std::string artista;}
+\DoxyCodeLine{365         std::string cancion;}
+\DoxyCodeLine{366         \textcolor{keywordflow}{while} (!file.eof())}
+\DoxyCodeLine{367         \{}
+\DoxyCodeLine{368             std::getline(file, line);}
+\DoxyCodeLine{369             cancion = line.substr(0, line.find(\textcolor{stringliteral}{"{},"{}}));}
+\DoxyCodeLine{370             artista = line.substr(line.find(\textcolor{stringliteral}{"{},"{}}) + 1, line.length());}
+\DoxyCodeLine{371             \textcolor{keywordflow}{if} (type == \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a8ad705935902161cb3197ede0a1243ae}{PIEZA::CANCION}})}
+\DoxyCodeLine{372             \{}
+\DoxyCodeLine{373                 tree.\mbox{\hyperlink{class_avl_tree_a20cc7bd4bb8d8876c1cfc39cf5996341}{insert}}(artista, cancion);}
+\DoxyCodeLine{374             \}}
+\DoxyCodeLine{375             \textcolor{keywordflow}{if} (type == \mbox{\hyperlink{application_8h_a84f5e43089c5505216b7cfbabf052bb1a6fb80bff7ae43edd5baf53cbff372e29}{PIEZA::ARTISTA}})}
+\DoxyCodeLine{376             \{}
+\DoxyCodeLine{377                 tree.\mbox{\hyperlink{class_avl_tree_a20cc7bd4bb8d8876c1cfc39cf5996341}{insert}}(cancion, artista);}
+\DoxyCodeLine{378             \}}
+\DoxyCodeLine{379         \}}
+\DoxyCodeLine{380         file.close();}
+\DoxyCodeLine{381     \}}
+\DoxyCodeLine{382 }
+\DoxyCodeLine{383     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_utils_1_1_file_ac08e9bb9b08598097cbe6dfbbb1bea82}{File::guardar\_arbol}}(\mbox{\hyperlink{class_avl_tree}{AvlTree}}\& tree, std::string file\_path)}
+\DoxyCodeLine{384     \{}
+\DoxyCodeLine{385         std::wofstream file(file\_path, std::ios::out | std::ios::binary);}
+\DoxyCodeLine{386         tree.\mbox{\hyperlink{class_avl_tree_a3b9bd862820a93de97180667be138047}{for\_each\_inorder}}([\&](\mbox{\hyperlink{class_avl_node}{AvlNode}}* node)}
+\DoxyCodeLine{387             \{}
+\DoxyCodeLine{388                 \textcolor{keywordflow}{if} (file.is\_open())}
+\DoxyCodeLine{389                 \{}
+\DoxyCodeLine{390                     file << node-\/>cancion().data() << \textcolor{stringliteral}{"{},"{}} << node-\/>artista().data() << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{391                 \};}
+\DoxyCodeLine{392             \});}
+\DoxyCodeLine{393         file.close();}
+\DoxyCodeLine{394     \}}
+\DoxyCodeLine{395 }
+\DoxyCodeLine{396 }
+\DoxyCodeLine{397     \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_utils_1_1_file_ad21240d530f5937e1c31a9113ee48967}{File::exists\_file}}(\textcolor{keyword}{const} std::string name)}
+\DoxyCodeLine{398     \{}
+\DoxyCodeLine{399         std::ifstream f(name.c\_str());}
+\DoxyCodeLine{400         \textcolor{keywordflow}{return} f.good();}
+\DoxyCodeLine{401     \}}
+\DoxyCodeLine{402 }
+\DoxyCodeLine{403     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_utils_1_1_generator_a735671f0b61e1a73cdeab78cda65e1ea}{Generator::generate\_admins}}(std::string\& new\_user, std::string\& new\_password)}
+\DoxyCodeLine{404     \{}
+\DoxyCodeLine{405         \mbox{\hyperlink{class_utils_1_1_file_a05069934bb31f037f27dccd0278a3597}{Utils::File::write\_file}}(new\_user, new\_password);}
+\DoxyCodeLine{406     \}}
+\DoxyCodeLine{407 }
+\DoxyCodeLine{408     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_utils_1_1_generator_a25c7bba1cc77c070f1a1713bf3d79ee3}{Generator::remove\_number}}(std::string\& str)}
+\DoxyCodeLine{409     \{}
+\DoxyCodeLine{410         std::string result;}
+\DoxyCodeLine{411         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{char}\& c : str)}
+\DoxyCodeLine{412         \{}
+\DoxyCodeLine{413             \textcolor{keywordflow}{if} (!isdigit(c))}
+\DoxyCodeLine{414             \{}
+\DoxyCodeLine{415                 result += c;}
+\DoxyCodeLine{416             \}}
+\DoxyCodeLine{417         \}}
+\DoxyCodeLine{418         str = result;}
+\DoxyCodeLine{419     \}}
+\DoxyCodeLine{420 \}}
+
+\end{DoxyCode}

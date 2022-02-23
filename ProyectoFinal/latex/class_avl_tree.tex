@@ -1,0 +1,188 @@
+\hypertarget{class_avl_tree}{}\doxysection{Avl\+Tree Class Reference}
+\label{class_avl_tree}\index{AvlTree@{AvlTree}}
+
+
+{\ttfamily \#include $<$avl\+\_\+tree.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_avl_tree_abd23853d819824a9e99e9ee9dbddd25a}{Avl\+Tree}} ()=default
+\item 
+void \mbox{\hyperlink{class_avl_tree_a20cc7bd4bb8d8876c1cfc39cf5996341}{insert}} (std\+::string artista, std\+::string cancion)
+\item 
+void \mbox{\hyperlink{class_avl_tree_a4237414bc5197b872c16e72c4367eb93}{remove}} (std\+::string)
+\item 
+bool \mbox{\hyperlink{class_avl_tree_a15b1a6e9db3421faab3dd535ef985e9b}{has}} (std\+::string)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$ $>$ \mbox{\hyperlink{class_avl_tree_a3016147db264ae2ca98405e745944ecc}{find}} (std\+::string word)
+\item 
+void \mbox{\hyperlink{class_avl_tree_a81f5cbcbdefbcc88ce73be774a4b855a}{modify}} (std\+::string, std\+::string)
+\item 
+void \mbox{\hyperlink{class_avl_tree_a3b9bd862820a93de97180667be138047}{for\+\_\+each\+\_\+inorder}} (std\+::function$<$ void(\mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$)$>$)
+\item 
+void \mbox{\hyperlink{class_avl_tree_afddc979cd5442ecc92808b439128cd1c}{for\+\_\+each\+\_\+preorder}} (std\+::function$<$ void(\mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$)$>$)
+\item 
+void \mbox{\hyperlink{class_avl_tree_ab62b0b9c7f75d9bd22f6f2391597bea7}{for\+\_\+each\+\_\+postorder}} (std\+::function$<$ void(\mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$)$>$)
+\item 
+void \mbox{\hyperlink{class_avl_tree_ac0c483c41249b84cf68144cf03df88a8}{print\+\_\+tree}} (\mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$, \mbox{\hyperlink{class_trunk}{Trunk}} $\ast$, bool, int)
+\item 
+void \mbox{\hyperlink{class_avl_tree_a58d1453e8adb1a157650c33b10ddff1f}{show\+\_\+trunks}} (\mbox{\hyperlink{class_trunk}{Trunk}} $\ast$p)
+\item 
+\mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$ \mbox{\hyperlink{class_avl_tree_aed85e52e4d5dc07ec9223ae5b67dcc92}{rotar\+\_\+izq}} (\mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$)
+\item 
+\mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$ \mbox{\hyperlink{class_avl_tree_ae9a6d2127539c7a11cc145c17a2cd58b}{rotar\+\_\+der}} (\mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$)
+\item 
+int \mbox{\hyperlink{class_avl_tree_a268ab80e5bc9721bf30786e187eb0c30}{max\+\_\+height}} (int a, int b)
+\item 
+int \mbox{\hyperlink{class_avl_tree_a1e50dc98e620247a042e5f9824a181a5}{find\+\_\+height}} (\mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$)
+\item 
+int \mbox{\hyperlink{class_avl_tree_aeb9f24387f4f2559467bf903f0b3f648}{balance\+\_\+factor}} (\mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$)
+\item 
+\mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$ \mbox{\hyperlink{class_avl_tree_a96803875d14b39b8a51e064263709060}{max\+\_\+value\+\_\+node}} (\mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$)
+\item 
+std\+::string \mbox{\hyperlink{class_avl_tree_a3c732897531f19f9e348a53405105ebe}{infer\+\_\+pieza}} (std\+::string)
+\item 
+void \mbox{\hyperlink{class_avl_tree_a033df71b390e0ab723f911cb192ad243}{to\+\_\+lower\+\_\+case}} (std\+::string \&)
+\item 
+int \mbox{\hyperlink{class_avl_tree_a906c0aa9e655ce93e00da6162e971382}{get\+\_\+size}} ()
+\item 
+\mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$ \mbox{\hyperlink{class_avl_tree_ac06b95a98aac3b5004b0bc955dc3d81e}{get\+\_\+root}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_avl_tree_abd23853d819824a9e99e9ee9dbddd25a}\label{class_avl_tree_abd23853d819824a9e99e9ee9dbddd25a}} 
+\index{AvlTree@{AvlTree}!AvlTree@{AvlTree}}
+\index{AvlTree@{AvlTree}!AvlTree@{AvlTree}}
+\doxysubsubsection{\texorpdfstring{AvlTree()}{AvlTree()}}
+{\footnotesize\ttfamily Avl\+Tree\+::\+Avl\+Tree (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_avl_tree_aeb9f24387f4f2559467bf903f0b3f648}\label{class_avl_tree_aeb9f24387f4f2559467bf903f0b3f648}} 
+\index{AvlTree@{AvlTree}!balance\_factor@{balance\_factor}}
+\index{balance\_factor@{balance\_factor}!AvlTree@{AvlTree}}
+\doxysubsubsection{\texorpdfstring{balance\_factor()}{balance\_factor()}}
+{\footnotesize\ttfamily int Avl\+Tree\+::balance\+\_\+factor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_avl_tree_a3016147db264ae2ca98405e745944ecc}\label{class_avl_tree_a3016147db264ae2ca98405e745944ecc}} 
+\index{AvlTree@{AvlTree}!find@{find}}
+\index{find@{find}!AvlTree@{AvlTree}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$ $>$ Avl\+Tree\+::find (\begin{DoxyParamCaption}\item[{std\+::string}]{word }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_avl_tree_a1e50dc98e620247a042e5f9824a181a5}\label{class_avl_tree_a1e50dc98e620247a042e5f9824a181a5}} 
+\index{AvlTree@{AvlTree}!find\_height@{find\_height}}
+\index{find\_height@{find\_height}!AvlTree@{AvlTree}}
+\doxysubsubsection{\texorpdfstring{find\_height()}{find\_height()}}
+{\footnotesize\ttfamily int Avl\+Tree\+::find\+\_\+height (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_avl_tree_a3b9bd862820a93de97180667be138047}\label{class_avl_tree_a3b9bd862820a93de97180667be138047}} 
+\index{AvlTree@{AvlTree}!for\_each\_inorder@{for\_each\_inorder}}
+\index{for\_each\_inorder@{for\_each\_inorder}!AvlTree@{AvlTree}}
+\doxysubsubsection{\texorpdfstring{for\_each\_inorder()}{for\_each\_inorder()}}
+{\footnotesize\ttfamily void Avl\+Tree\+::for\+\_\+each\+\_\+inorder (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(\mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$)$>$}]{callback }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_avl_tree_ab62b0b9c7f75d9bd22f6f2391597bea7}\label{class_avl_tree_ab62b0b9c7f75d9bd22f6f2391597bea7}} 
+\index{AvlTree@{AvlTree}!for\_each\_postorder@{for\_each\_postorder}}
+\index{for\_each\_postorder@{for\_each\_postorder}!AvlTree@{AvlTree}}
+\doxysubsubsection{\texorpdfstring{for\_each\_postorder()}{for\_each\_postorder()}}
+{\footnotesize\ttfamily void Avl\+Tree\+::for\+\_\+each\+\_\+postorder (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(\mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$)$>$}]{callback }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_avl_tree_afddc979cd5442ecc92808b439128cd1c}\label{class_avl_tree_afddc979cd5442ecc92808b439128cd1c}} 
+\index{AvlTree@{AvlTree}!for\_each\_preorder@{for\_each\_preorder}}
+\index{for\_each\_preorder@{for\_each\_preorder}!AvlTree@{AvlTree}}
+\doxysubsubsection{\texorpdfstring{for\_each\_preorder()}{for\_each\_preorder()}}
+{\footnotesize\ttfamily void Avl\+Tree\+::for\+\_\+each\+\_\+preorder (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(\mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$)$>$}]{callback }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_avl_tree_ac06b95a98aac3b5004b0bc955dc3d81e}\label{class_avl_tree_ac06b95a98aac3b5004b0bc955dc3d81e}} 
+\index{AvlTree@{AvlTree}!get\_root@{get\_root}}
+\index{get\_root@{get\_root}!AvlTree@{AvlTree}}
+\doxysubsubsection{\texorpdfstring{get\_root()}{get\_root()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$ Avl\+Tree\+::get\+\_\+root (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_avl_tree_a906c0aa9e655ce93e00da6162e971382}\label{class_avl_tree_a906c0aa9e655ce93e00da6162e971382}} 
+\index{AvlTree@{AvlTree}!get\_size@{get\_size}}
+\index{get\_size@{get\_size}!AvlTree@{AvlTree}}
+\doxysubsubsection{\texorpdfstring{get\_size()}{get\_size()}}
+{\footnotesize\ttfamily int Avl\+Tree\+::get\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_avl_tree_a15b1a6e9db3421faab3dd535ef985e9b}\label{class_avl_tree_a15b1a6e9db3421faab3dd535ef985e9b}} 
+\index{AvlTree@{AvlTree}!has@{has}}
+\index{has@{has}!AvlTree@{AvlTree}}
+\doxysubsubsection{\texorpdfstring{has()}{has()}}
+{\footnotesize\ttfamily bool Avl\+Tree\+::has (\begin{DoxyParamCaption}\item[{std\+::string}]{word }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_avl_tree_a3c732897531f19f9e348a53405105ebe}\label{class_avl_tree_a3c732897531f19f9e348a53405105ebe}} 
+\index{AvlTree@{AvlTree}!infer\_pieza@{infer\_pieza}}
+\index{infer\_pieza@{infer\_pieza}!AvlTree@{AvlTree}}
+\doxysubsubsection{\texorpdfstring{infer\_pieza()}{infer\_pieza()}}
+{\footnotesize\ttfamily std\+::string Avl\+Tree\+::infer\+\_\+pieza (\begin{DoxyParamCaption}\item[{std\+::string}]{word }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_avl_tree_a20cc7bd4bb8d8876c1cfc39cf5996341}\label{class_avl_tree_a20cc7bd4bb8d8876c1cfc39cf5996341}} 
+\index{AvlTree@{AvlTree}!insert@{insert}}
+\index{insert@{insert}!AvlTree@{AvlTree}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily void Avl\+Tree\+::insert (\begin{DoxyParamCaption}\item[{std\+::string}]{artista,  }\item[{std\+::string}]{cancion }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_avl_tree_a268ab80e5bc9721bf30786e187eb0c30}\label{class_avl_tree_a268ab80e5bc9721bf30786e187eb0c30}} 
+\index{AvlTree@{AvlTree}!max\_height@{max\_height}}
+\index{max\_height@{max\_height}!AvlTree@{AvlTree}}
+\doxysubsubsection{\texorpdfstring{max\_height()}{max\_height()}}
+{\footnotesize\ttfamily int Avl\+Tree\+::max\+\_\+height (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_avl_tree_a96803875d14b39b8a51e064263709060}\label{class_avl_tree_a96803875d14b39b8a51e064263709060}} 
+\index{AvlTree@{AvlTree}!max\_value\_node@{max\_value\_node}}
+\index{max\_value\_node@{max\_value\_node}!AvlTree@{AvlTree}}
+\doxysubsubsection{\texorpdfstring{max\_value\_node()}{max\_value\_node()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$ Avl\+Tree\+::max\+\_\+value\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_avl_tree_a81f5cbcbdefbcc88ce73be774a4b855a}\label{class_avl_tree_a81f5cbcbdefbcc88ce73be774a4b855a}} 
+\index{AvlTree@{AvlTree}!modify@{modify}}
+\index{modify@{modify}!AvlTree@{AvlTree}}
+\doxysubsubsection{\texorpdfstring{modify()}{modify()}}
+{\footnotesize\ttfamily void Avl\+Tree\+::modify (\begin{DoxyParamCaption}\item[{std\+::string}]{word,  }\item[{std\+::string}]{new\+\_\+word }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_avl_tree_ac0c483c41249b84cf68144cf03df88a8}\label{class_avl_tree_ac0c483c41249b84cf68144cf03df88a8}} 
+\index{AvlTree@{AvlTree}!print\_tree@{print\_tree}}
+\index{print\_tree@{print\_tree}!AvlTree@{AvlTree}}
+\doxysubsubsection{\texorpdfstring{print\_tree()}{print\_tree()}}
+{\footnotesize\ttfamily void Avl\+Tree\+::print\+\_\+tree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$}]{current,  }\item[{\mbox{\hyperlink{class_trunk}{Trunk}} $\ast$}]{prev,  }\item[{bool}]{is\+Left,  }\item[{int}]{melodia }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_avl_tree_a4237414bc5197b872c16e72c4367eb93}\label{class_avl_tree_a4237414bc5197b872c16e72c4367eb93}} 
+\index{AvlTree@{AvlTree}!remove@{remove}}
+\index{remove@{remove}!AvlTree@{AvlTree}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily void Avl\+Tree\+::remove (\begin{DoxyParamCaption}\item[{std\+::string}]{word }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_avl_tree_ae9a6d2127539c7a11cc145c17a2cd58b}\label{class_avl_tree_ae9a6d2127539c7a11cc145c17a2cd58b}} 
+\index{AvlTree@{AvlTree}!rotar\_der@{rotar\_der}}
+\index{rotar\_der@{rotar\_der}!AvlTree@{AvlTree}}
+\doxysubsubsection{\texorpdfstring{rotar\_der()}{rotar\_der()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$ Avl\+Tree\+::rotar\+\_\+der (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$}]{current }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_avl_tree_aed85e52e4d5dc07ec9223ae5b67dcc92}\label{class_avl_tree_aed85e52e4d5dc07ec9223ae5b67dcc92}} 
+\index{AvlTree@{AvlTree}!rotar\_izq@{rotar\_izq}}
+\index{rotar\_izq@{rotar\_izq}!AvlTree@{AvlTree}}
+\doxysubsubsection{\texorpdfstring{rotar\_izq()}{rotar\_izq()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$ Avl\+Tree\+::rotar\+\_\+izq (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_avl_node}{Avl\+Node}} $\ast$}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_avl_tree_a58d1453e8adb1a157650c33b10ddff1f}\label{class_avl_tree_a58d1453e8adb1a157650c33b10ddff1f}} 
+\index{AvlTree@{AvlTree}!show\_trunks@{show\_trunks}}
+\index{show\_trunks@{show\_trunks}!AvlTree@{AvlTree}}
+\doxysubsubsection{\texorpdfstring{show\_trunks()}{show\_trunks()}}
+{\footnotesize\ttfamily void Avl\+Tree\+::show\+\_\+trunks (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trunk}{Trunk}} $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_avl_tree_a033df71b390e0ab723f911cb192ad243}\label{class_avl_tree_a033df71b390e0ab723f911cb192ad243}} 
+\index{AvlTree@{AvlTree}!to\_lower\_case@{to\_lower\_case}}
+\index{to\_lower\_case@{to\_lower\_case}!AvlTree@{AvlTree}}
+\doxysubsubsection{\texorpdfstring{to\_lower\_case()}{to\_lower\_case()}}
+{\footnotesize\ttfamily void Avl\+Tree\+::to\+\_\+lower\+\_\+case (\begin{DoxyParamCaption}\item[{std\+::string \&}]{word }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{avl__tree_8h}{avl\+\_\+tree.\+h}}\end{DoxyCompactItemize}

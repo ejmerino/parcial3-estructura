@@ -1,0 +1,107 @@
+\hypertarget{avl__node_8h_source}{}\doxysection{avl\+\_\+node.\+h}
+\mbox{\hyperlink{avl__node_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*Universidad de Las Fuerzas Armadas -\/ ESPE}}
+\DoxyCodeLine{2 \textcolor{comment}{* Autores: Josu{\ucr} Alem{\ucr}n, Josu{\ucr} Merino}}
+\DoxyCodeLine{3 \textcolor{comment}{* PROYECTO 3er PARCIAL -\/ TCANCIONERO 2022}}
+\DoxyCodeLine{4 \textcolor{comment}{* Fecha de Creaci{\ucr}n: 16 de febrero del 2022}}
+\DoxyCodeLine{5 \textcolor{comment}{* Fecha de Modificaci{\ucr}n: 22 de febrero del 2022}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_avl_node}{AvlNode}}}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13 \textcolor{keyword}{public}:}
+\DoxyCodeLine{14     \mbox{\hyperlink{class_avl_node_ac61725df13f2841bcaf86daca667c30d}{AvlNode}}(std::string, std::string);}
+\DoxyCodeLine{15     \mbox{\hyperlink{class_avl_node_ac61725df13f2841bcaf86daca667c30d}{AvlNode}}(std::string, std::string, \textcolor{keywordtype}{int});}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_avl_node_ac61725df13f2841bcaf86daca667c30d}{AvlNode}}(std::string, std::string, \textcolor{keywordtype}{int}, \mbox{\hyperlink{class_avl_node}{AvlNode}}*, \mbox{\hyperlink{class_avl_node}{AvlNode}}*);}
+\DoxyCodeLine{17     \textcolor{keyword}{inline} \mbox{\hyperlink{class_avl_node}{AvlNode}}* \mbox{\hyperlink{class_avl_node_ab7197b1dcfce1d8dd4e292c9f05b2233}{left}}();}
+\DoxyCodeLine{18     \textcolor{keyword}{inline} \mbox{\hyperlink{class_avl_node}{AvlNode}}* \mbox{\hyperlink{class_avl_node_aee732dcbdfe4dc6cd3a50f603960611f}{right}}();}
+\DoxyCodeLine{19     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_avl_node_ac82dcdbe959515c3180fede363e9c9bb}{set\_left}}(\mbox{\hyperlink{class_avl_node}{AvlNode}}*);}
+\DoxyCodeLine{20     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_avl_node_ab7c09b3750f9a175164014e186e43e09}{set\_right}}(\mbox{\hyperlink{class_avl_node}{AvlNode}}* n);}
+\DoxyCodeLine{21     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_avl_node_ab99d5119f0b1b1e78dc7bf96777d4fe9}{set\_height}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{22     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_avl_node_ae8efb429728b1148c359221787d3e313}{set\_cancion}}(std::string);}
+\DoxyCodeLine{23     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_avl_node_a6f9d5efbe276dd5c9ad50fffe760e513}{set\_artista}}(std::string);}
+\DoxyCodeLine{24     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_avl_node_a959f4d86a5feae6c9e8e336cb3e9ce43}{height}}();}
+\DoxyCodeLine{25     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_avl_node_a5ecdbe8843bc2ca8c9d1ccba4f8df2ff}{cancion}}();}
+\DoxyCodeLine{26     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_avl_node_af329424e398b9fa9b85e39d01f8f175f}{artista}}();}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{private}:}
+\DoxyCodeLine{29     \mbox{\hyperlink{class_avl_node}{AvlNode}}* \_left = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{30     \mbox{\hyperlink{class_avl_node}{AvlNode}}* \_right = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{31     std::string \_cancion;}
+\DoxyCodeLine{32     std::string \_artista;}
+\DoxyCodeLine{33     \textcolor{keywordtype}{int} \_height\{ 1 \};}
+\DoxyCodeLine{34 \};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \mbox{\hyperlink{class_avl_node_ac61725df13f2841bcaf86daca667c30d}{AvlNode::AvlNode}}(std::string cancion, std::string artista)}
+\DoxyCodeLine{37     : \_cancion(cancion), \_artista(artista), \_height(1)}
+\DoxyCodeLine{38 \{}
+\DoxyCodeLine{39 \}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \mbox{\hyperlink{class_avl_node_ac61725df13f2841bcaf86daca667c30d}{AvlNode::AvlNode}}(std::string cancion, std::string artista, \textcolor{keywordtype}{int} height)}
+\DoxyCodeLine{42     : \_cancion(cancion), \_artista(artista), \_height(height)}
+\DoxyCodeLine{43 \{}
+\DoxyCodeLine{44 \}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \mbox{\hyperlink{class_avl_node_ac61725df13f2841bcaf86daca667c30d}{AvlNode::AvlNode}}(std::string cancion, std::string artista, \textcolor{keywordtype}{int} height, \mbox{\hyperlink{class_avl_node}{AvlNode}}* left, \mbox{\hyperlink{class_avl_node}{AvlNode}}* right)}
+\DoxyCodeLine{47     : \_cancion(cancion), \_artista(artista), \_height(height)}
+\DoxyCodeLine{48 \{}
+\DoxyCodeLine{49     \_left = \mbox{\hyperlink{class_avl_node_ab7197b1dcfce1d8dd4e292c9f05b2233}{left}};}
+\DoxyCodeLine{50     \_right = \mbox{\hyperlink{class_avl_node_aee732dcbdfe4dc6cd3a50f603960611f}{right}};}
+\DoxyCodeLine{51 \}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{keyword}{inline} \mbox{\hyperlink{class_avl_node}{AvlNode}}* \mbox{\hyperlink{class_avl_node_ab7197b1dcfce1d8dd4e292c9f05b2233}{AvlNode::left}}()}
+\DoxyCodeLine{54 \{}
+\DoxyCodeLine{55     \textcolor{keywordflow}{return} \_left;}
+\DoxyCodeLine{56 \}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{keyword}{inline} \mbox{\hyperlink{class_avl_node}{AvlNode}}* \mbox{\hyperlink{class_avl_node_aee732dcbdfe4dc6cd3a50f603960611f}{AvlNode::right}}()}
+\DoxyCodeLine{59 \{}
+\DoxyCodeLine{60     \textcolor{keywordflow}{return} \_right;}
+\DoxyCodeLine{61 \}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_avl_node_ac82dcdbe959515c3180fede363e9c9bb}{AvlNode::set\_left}}(\mbox{\hyperlink{class_avl_node}{AvlNode}}* node)}
+\DoxyCodeLine{64 \{}
+\DoxyCodeLine{65     \_left = node;}
+\DoxyCodeLine{66 \}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_avl_node_ab7c09b3750f9a175164014e186e43e09}{AvlNode::set\_right}}(\mbox{\hyperlink{class_avl_node}{AvlNode}}* node)}
+\DoxyCodeLine{69 \{}
+\DoxyCodeLine{70     \_right = node;}
+\DoxyCodeLine{71 \}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_avl_node_a959f4d86a5feae6c9e8e336cb3e9ce43}{AvlNode::height}}()}
+\DoxyCodeLine{74 \{}
+\DoxyCodeLine{75     \textcolor{keywordflow}{return} \_height;}
+\DoxyCodeLine{76 \}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_avl_node_ab99d5119f0b1b1e78dc7bf96777d4fe9}{AvlNode::set\_height}}(\textcolor{keywordtype}{int} height)}
+\DoxyCodeLine{79 \{}
+\DoxyCodeLine{80     \_height = \mbox{\hyperlink{class_avl_node_a959f4d86a5feae6c9e8e336cb3e9ce43}{height}};}
+\DoxyCodeLine{81 \}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_avl_node_a5ecdbe8843bc2ca8c9d1ccba4f8df2ff}{AvlNode::cancion}}()}
+\DoxyCodeLine{84 \{}
+\DoxyCodeLine{85     \textcolor{keywordflow}{return} \_cancion;}
+\DoxyCodeLine{86 \}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \textcolor{keyword}{inline} std::string \mbox{\hyperlink{class_avl_node_af329424e398b9fa9b85e39d01f8f175f}{AvlNode::artista}}()}
+\DoxyCodeLine{89 \{}
+\DoxyCodeLine{90     \textcolor{keywordflow}{return} \_artista;}
+\DoxyCodeLine{91 \}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_avl_node_ae8efb429728b1148c359221787d3e313}{AvlNode::set\_cancion}}(std::string cancion)}
+\DoxyCodeLine{94 \{}
+\DoxyCodeLine{95     \_cancion = \mbox{\hyperlink{class_avl_node_a5ecdbe8843bc2ca8c9d1ccba4f8df2ff}{cancion}};}
+\DoxyCodeLine{96 \}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_avl_node_a6f9d5efbe276dd5c9ad50fffe760e513}{AvlNode::set\_artista}}(std::string artista)}
+\DoxyCodeLine{99 \{}
+\DoxyCodeLine{100     \_artista = \mbox{\hyperlink{class_avl_node_af329424e398b9fa9b85e39d01f8f175f}{artista}};}
+\DoxyCodeLine{101 \}}
+\DoxyCodeLine{102 }
+
+\end{DoxyCode}

@@ -1,0 +1,163 @@
+\hypertarget{_marquee_8h_source}{}\doxysection{Marquee.\+h}
+\mbox{\hyperlink{_marquee_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*Universidad de Las Fuerzas Armadas -\/ ESPE}}
+\DoxyCodeLine{2 \textcolor{comment}{* Autores: Josu{\ucr} Alem{\ucr}n, Josu{\ucr} Merino}}
+\DoxyCodeLine{3 \textcolor{comment}{* PROYECTO 3er PARCIAL -\/ TCANCIONERO 2022}}
+\DoxyCodeLine{4 \textcolor{comment}{* Fecha de Creaci{\ucr}n: 16 de febrero del 2022}}
+\DoxyCodeLine{5 \textcolor{comment}{* Fecha de Modificaci{\ucr}n: 22 de febrero del 2022}}
+\DoxyCodeLine{6 \textcolor{comment}{*/}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <thread>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <Windows.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_string__p_8h}{String\_p.h}}"{}}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_marquee}{Marquee}} \{}
+\DoxyCodeLine{17 \textcolor{keyword}{private}:}
+\DoxyCodeLine{18     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* content;}
+\DoxyCodeLine{19     \textcolor{keywordtype}{int} lenght;}
+\DoxyCodeLine{20     COORD coord = \{ 0,0 \};}
+\DoxyCodeLine{21     \mbox{\hyperlink{class_string__p}{String\_p}} string\_op;}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{public}:}
+\DoxyCodeLine{24     \textcolor{comment}{/*}}
+\DoxyCodeLine{25 \textcolor{comment}{    * @brief Constructor por default}}
+\DoxyCodeLine{26 \textcolor{comment}{    * @param}}
+\DoxyCodeLine{27 \textcolor{comment}{    * @return}}
+\DoxyCodeLine{28 \textcolor{comment}{    */}}
+\DoxyCodeLine{29     \mbox{\hyperlink{class_marquee_a618e43f4cee945708882f520a42a6993}{Marquee}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{comment}{/*}}
+\DoxyCodeLine{32 \textcolor{comment}{    * @brief Constructor}}
+\DoxyCodeLine{33 \textcolor{comment}{    * @param}}
+\DoxyCodeLine{34 \textcolor{comment}{    * char cadena de texto a mostrar en la marquesina}}
+\DoxyCodeLine{35 \textcolor{comment}{    * int longitud de la cadena}}
+\DoxyCodeLine{36 \textcolor{comment}{    * @return}}
+\DoxyCodeLine{37 \textcolor{comment}{    */}}
+\DoxyCodeLine{38     \mbox{\hyperlink{class_marquee_a618e43f4cee945708882f520a42a6993}{Marquee}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}*, \textcolor{keywordtype}{int});}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{comment}{/*}}
+\DoxyCodeLine{41 \textcolor{comment}{    * @brief Marquee mueve los caracteres de la marquesina}}
+\DoxyCodeLine{42 \textcolor{comment}{    * @param}}
+\DoxyCodeLine{43 \textcolor{comment}{    * int posicion}}
+\DoxyCodeLine{44 \textcolor{comment}{    * @return char*}}
+\DoxyCodeLine{45 \textcolor{comment}{    */}}
+\DoxyCodeLine{46     \textcolor{keywordtype}{char}* \mbox{\hyperlink{class_marquee_aae60bfebd8c7b30ecb1d7c1eaa29a6a0}{marquee}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{comment}{/*}}
+\DoxyCodeLine{49 \textcolor{comment}{    * @brief Muestra el cursor en una posicion especifica}}
+\DoxyCodeLine{50 \textcolor{comment}{    * @param}}
+\DoxyCodeLine{51 \textcolor{comment}{    * int posicion x}}
+\DoxyCodeLine{52 \textcolor{comment}{    * int posicion y}}
+\DoxyCodeLine{53 \textcolor{comment}{    * @return}}
+\DoxyCodeLine{54 \textcolor{comment}{    */}}
+\DoxyCodeLine{55     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_marquee_ab3c1da781ccc08a2d10cb0f93871da7b}{print\_to}}(\textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     \textcolor{comment}{/*}}
+\DoxyCodeLine{58 \textcolor{comment}{    * @brief imprime la marquesina}}
+\DoxyCodeLine{59 \textcolor{comment}{    * @param}}
+\DoxyCodeLine{60 \textcolor{comment}{    * @return}}
+\DoxyCodeLine{61 \textcolor{comment}{    */}}
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_marquee_aa4e155e1572b71b43ea796cd49fde390}{show}}();}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{comment}{/*}}
+\DoxyCodeLine{65 \textcolor{comment}{    * @brief se genera el hilo}}
+\DoxyCodeLine{66 \textcolor{comment}{    * @param}}
+\DoxyCodeLine{67 \textcolor{comment}{    * @return}}
+\DoxyCodeLine{68 \textcolor{comment}{    */}}
+\DoxyCodeLine{69     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_marquee_a7df31fe1ffd8f85b304a6268cc598680}{animation}}();}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{77     COORD \mbox{\hyperlink{class_marquee_a112fc7b5c331cea708de0f2f381243f5}{GetConsoleCursorPosition}}(HANDLE hConsoleOutput);}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{83     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_marquee_a1396d52d72a49e136f0985a26f50a9dd}{cursorHide}}();}
+\DoxyCodeLine{84 \};}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \mbox{\hyperlink{class_marquee_a618e43f4cee945708882f520a42a6993}{Marquee::Marquee}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* \_content, \textcolor{keywordtype}{int} \_lenght) \{}
+\DoxyCodeLine{89     this-\/>content = \_content;}
+\DoxyCodeLine{90     this-\/>lenght = \_lenght;}
+\DoxyCodeLine{91 \}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{keywordtype}{char}* \mbox{\hyperlink{class_marquee_aae60bfebd8c7b30ecb1d7c1eaa29a6a0}{Marquee::marquee}}(\textcolor{keywordtype}{int} position) \{}
+\DoxyCodeLine{94     \textcolor{keywordtype}{int} counter = 0;}
+\DoxyCodeLine{95     \textcolor{keywordtype}{char}* display = (\textcolor{keywordtype}{char}*)malloc(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * (lenght + 1));}
+\DoxyCodeLine{96     \textcolor{keywordtype}{char}* travel = (\textcolor{keywordtype}{char}*)malloc(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * 256);}
+\DoxyCodeLine{97     \textcolor{keywordtype}{char}* temp = (\textcolor{keywordtype}{char}*)malloc(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * (strlen(content) + 1));}
+\DoxyCodeLine{98     string\_op.\mbox{\hyperlink{class_string__p_af45165277427076f26da4dc2b7f74717}{strcpy}}(travel, content);}
+\DoxyCodeLine{99     \mbox{\hyperlink{class_marquee_a1396d52d72a49e136f0985a26f50a9dd}{cursorHide}}();}
+\DoxyCodeLine{100     \textcolor{keywordflow}{while} (counter < position) \{}
+\DoxyCodeLine{101         temp[counter] = travel[0];}
+\DoxyCodeLine{102         travel++;}
+\DoxyCodeLine{103         counter = counter + 1;}
+\DoxyCodeLine{104     \}}
+\DoxyCodeLine{105     temp[counter + 1] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{106     string\_op.\mbox{\hyperlink{class_string__p_a5808e00fab7882a4336f26bac106042e}{strcat}}(travel, \textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{107     string\_op.\mbox{\hyperlink{class_string__p_a5808e00fab7882a4336f26bac106042e}{strcat}}(travel, temp);}
+\DoxyCodeLine{108     string\_op.\mbox{\hyperlink{class_string__p_ae19973bca921852dd6aae29fd2e9f18d}{strncpy}}(display, travel, lenght);}
+\DoxyCodeLine{109     display[lenght] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{110     \textcolor{keywordflow}{return} display;}
+\DoxyCodeLine{111 \}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_marquee_a1396d52d72a49e136f0985a26f50a9dd}{Marquee::cursorHide}}()}
+\DoxyCodeLine{114 \{}
+\DoxyCodeLine{115     HANDLE hwnd;}
+\DoxyCodeLine{116     hwnd = GetStdHandle(STD\_OUTPUT\_HANDLE);}
+\DoxyCodeLine{117     CONSOLE\_CURSOR\_INFO info;}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119     info.bVisible = 0;}
+\DoxyCodeLine{120     info.dwSize = 1;}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122     SetConsoleCursorInfo(hwnd, \&info);}
+\DoxyCodeLine{123 \}}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125 COORD \mbox{\hyperlink{class_marquee_a112fc7b5c331cea708de0f2f381243f5}{Marquee::GetConsoleCursorPosition}}(HANDLE hConsoleOutput)}
+\DoxyCodeLine{126 \{}
+\DoxyCodeLine{127     CONSOLE\_SCREEN\_BUFFER\_INFO cbsi;}
+\DoxyCodeLine{128     \textcolor{keywordflow}{if} (GetConsoleScreenBufferInfo(hConsoleOutput, \&cbsi))}
+\DoxyCodeLine{129     \{}
+\DoxyCodeLine{130         \textcolor{keywordflow}{return} cbsi.dwCursorPosition;}
+\DoxyCodeLine{131     \}}
+\DoxyCodeLine{132     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{133     \{}
+\DoxyCodeLine{134         COORD invalid = \{ 0, 0 \};}
+\DoxyCodeLine{135         \textcolor{keywordflow}{return} invalid;}
+\DoxyCodeLine{136     \}}
+\DoxyCodeLine{137 \}}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_marquee_aa4e155e1572b71b43ea796cd49fde390}{Marquee::show}}() \{}
+\DoxyCodeLine{140     \textcolor{keywordtype}{char}* singboard;}
+\DoxyCodeLine{141     \textcolor{keywordflow}{while} (1) \{}
+\DoxyCodeLine{142         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < lenght; i++) \{}
+\DoxyCodeLine{143             singboard = \mbox{\hyperlink{class_marquee_aae60bfebd8c7b30ecb1d7c1eaa29a6a0}{marquee}}(i);}
+\DoxyCodeLine{144             \mbox{\hyperlink{class_marquee_ab3c1da781ccc08a2d10cb0f93871da7b}{print\_to}}(50, 1);}
+\DoxyCodeLine{145             std::cout << singboard;}
+\DoxyCodeLine{146             \mbox{\hyperlink{class_marquee_ab3c1da781ccc08a2d10cb0f93871da7b}{print\_to}}(150, 1);}
+\DoxyCodeLine{147             std::cout << std::endl;}
+\DoxyCodeLine{148             Sleep(600);}
+\DoxyCodeLine{149         \}}
+\DoxyCodeLine{150     \}}
+\DoxyCodeLine{151 \}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_marquee_ab3c1da781ccc08a2d10cb0f93871da7b}{Marquee::print\_to}}(\textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y) \{}
+\DoxyCodeLine{154     coord.X = x;}
+\DoxyCodeLine{155     coord.Y = y;}
+\DoxyCodeLine{156     SetConsoleCursorPosition(GetStdHandle(STD\_OUTPUT\_HANDLE), coord);}
+\DoxyCodeLine{157     fflush(stdout);}
+\DoxyCodeLine{158 \}}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_marquee_a7df31fe1ffd8f85b304a6268cc598680}{Marquee::animation}}() \{}
+\DoxyCodeLine{161     COORD cord;}
+\DoxyCodeLine{162     cord = \mbox{\hyperlink{class_marquee_a112fc7b5c331cea708de0f2f381243f5}{GetConsoleCursorPosition}}(GetStdHandle(STD\_OUTPUT\_HANDLE));}
+\DoxyCodeLine{163     std::thread first(\&\mbox{\hyperlink{class_marquee_aa4e155e1572b71b43ea796cd49fde390}{Marquee::show}}, \textcolor{keyword}{this});}
+\DoxyCodeLine{164     SetConsoleCursorPosition(GetStdHandle(STD\_OUTPUT\_HANDLE), cord);}
+\DoxyCodeLine{165     fflush(stdout);}
+\DoxyCodeLine{166     first.detach();}
+\DoxyCodeLine{167     SetConsoleCursorPosition(GetStdHandle(STD\_OUTPUT\_HANDLE), cord);}
+\DoxyCodeLine{168 \}}
+
+\end{DoxyCode}
